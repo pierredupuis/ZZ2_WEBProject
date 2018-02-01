@@ -1,0 +1,10 @@
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\bin\Debug\netstandard1.4\StubDataAccessLayer.deps.json
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\bin\Debug\netstandard1.4\StubDataAccessLayer.dll
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\bin\Debug\netstandard1.4\StubDataAccessLayer.pdb
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\bin\Debug\netstandard1.4\EntitiesLayer.dll
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\bin\Debug\netstandard1.4\EntitiesLayer.pdb
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.AssemblyInfo.cs
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.dll
+C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.pdb

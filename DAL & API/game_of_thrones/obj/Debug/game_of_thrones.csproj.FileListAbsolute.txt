@@ -1,0 +1,9 @@
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\game_of_thrones.exe.config
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\game_of_thrones.exe
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\game_of_thrones.pdb
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\obj\Debug\game_of_thrones.csprojResolveAssemblyReference.cache
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\obj\Debug\game_of_thrones.csproj.CoreCompileInputs.cache
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\obj\Debug\game_of_thrones.exe
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\obj\Debug\game_of_thrones.pdb
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\BusinessLayer.dll
+C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\BusinessLayer.pdb
