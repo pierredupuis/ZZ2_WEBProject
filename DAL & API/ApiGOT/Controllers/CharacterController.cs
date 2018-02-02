@@ -12,7 +12,7 @@ namespace ApiGOT.Controllers
 {
     public class CharacterController : ApiController
     {
-        public List<CharacterDTO> getAllCharacters()
+        public List<CharacterDTO> GetAllCharacters()
         {
             List<CharacterDTO> list = new List<CharacterDTO>();
 
@@ -24,6 +24,17 @@ namespace ApiGOT.Controllers
             }
 
             return list;
+        }
+        public CharacterDTO GetCharacter(int id)
+        {
+            DalManager m = DalManager.Instance;
+
+            return new CharacterDTO(m.getCharacter(id));
+        }
+        public void PostCharacter(CharacterDTO character)
+        {
+            DalManager m = DalManager.Instance;
+            m.AddCharacter(character);
         }
     }
 }
