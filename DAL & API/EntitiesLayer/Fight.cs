@@ -12,16 +12,18 @@ namespace EntitiesLayer
         House houseChallenger2;
         House winningHouse;
 
-        static int currId = 0;
+        public House HouseChallenger1 { get => houseChallenger1; set => houseChallenger1 = value; }
+        public House HouseChallenger2 { get => houseChallenger2; set => houseChallenger2 = value; }
+        public House WinningHouse { get => winningHouse; set => winningHouse = value; }
+        public int Id { get => id; set => id = value; }
 
-        public Fight(House p_houseChallenger1, House p_houseChallenger2, House p_winningHouse)
+        public Fight(int p_id, House p_houseChallenger1, House p_houseChallenger2, House p_winningHouse)
         {
-            houseChallenger1 = p_houseChallenger1;
-            houseChallenger2 = p_houseChallenger2;
-            winningHouse = p_winningHouse;
+            HouseChallenger1 = p_houseChallenger1;
+            HouseChallenger2 = p_houseChallenger2;
+            WinningHouse = p_winningHouse;
 
-            id = currId;
-            currId++;
+            id = p_id;
         }
     }
 }

@@ -5,7 +5,7 @@ using EntitiesLayer;
 
 namespace DataAccessLayer
 {
-    abstract class AbstractDalManager : IDal
+    public abstract class AbstractDalManager : IDal
     {
         abstract public List<House> GetHouses();
         abstract public House GetHouseById(int h);

@@ -7,7 +7,7 @@ using EntitiesLayer;
 
 namespace DataAccessLayer
 {
-    class DalManager : AbstractDalManager
+    public class DalManager : AbstractDalManager
     {
         private static readonly Lazy<DalManager> lazy = new Lazy<DalManager>(() => new DalManager());
         private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
