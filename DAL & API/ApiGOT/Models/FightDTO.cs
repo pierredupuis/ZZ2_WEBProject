@@ -7,5 +7,6 @@ namespace ApiGOT.Models
 {
     public class FightDTO
     {
+        public int 
     }
 }
