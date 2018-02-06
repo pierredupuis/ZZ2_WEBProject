@@ -1,7 +1,0 @@
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\bin\Debug\netstandard1.4\EntitiesLayer.deps.json
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\bin\Debug\netstandard1.4\EntitiesLayer.dll
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\bin\Debug\netstandard1.4\EntitiesLayer.pdb
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\obj\Debug\netstandard1.4\EntitiesLayer.csproj.CoreCompileInputs.cache
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\obj\Debug\netstandard1.4\EntitiesLayer.AssemblyInfo.cs
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\obj\Debug\netstandard1.4\EntitiesLayer.dll
-C:\Users\MADDXYZ\source\repos\game_of_thrones\EntitiesLayer\obj\Debug\netstandard1.4\EntitiesLayer.pdb
