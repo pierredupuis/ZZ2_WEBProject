@@ -8,3 +8,9 @@ C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\nets
 C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.AssemblyInfo.cs
 C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.dll
 C:\Users\MADDXYZ\source\repos\game_of_thrones\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.pdb
+E:\ZZ2_WEBProject\DAL & API\StubDataAccessLayer\bin\Debug\netstandard1.4\StubDataAccessLayer.deps.json
+E:\ZZ2_WEBProject\DAL & API\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.csprojResolveAssemblyReference.cache
+E:\ZZ2_WEBProject\DAL & API\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.csproj.CoreCompileInputs.cache
+E:\ZZ2_WEBProject\DAL & API\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.AssemblyInfo.cs
+E:\ZZ2_WEBProject\DAL & API\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.dll
+E:\ZZ2_WEBProject\DAL & API\StubDataAccessLayer\obj\Debug\netstandard1.4\StubDataAccessLayer.pdb

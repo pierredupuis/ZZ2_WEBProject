@@ -7,3 +7,10 @@ C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\obj\Debug\game_of_
 C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\obj\Debug\game_of_thrones.pdb
 C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\BusinessLayer.dll
 C:\Users\MADDXYZ\source\repos\game_of_thrones\game_of_thrones\bin\Debug\BusinessLayer.pdb
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csprojResolveAssemblyReference.cache
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.MainWindow.resources
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.Menu.resources
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csproj.GenerateResource.Cache
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csproj.CoreCompileInputs.cache
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.exe
+E:\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.pdb

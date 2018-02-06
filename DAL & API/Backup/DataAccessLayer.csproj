@@ -1,19 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj" />
     <ProjectReference Include="..\game_of_thrones\game_of_thrones.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <Reference Include="System.Data">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
+
 </Project>

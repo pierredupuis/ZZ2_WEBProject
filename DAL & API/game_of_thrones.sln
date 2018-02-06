@@ -5,13 +5,9 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game_of_thrones", "game_of_thrones\game_of_thrones.csproj", "{5E8C6309-6F42-4589-868D-8B08E3847371}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{78013B54-1A00-4725-8890-9D3295F42E0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer_2\DataAccessLayer.csproj", "{938E7AEA-7916-4624-A9A8-898B9F2823C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StubDataAccessLayer", "StubDataAccessLayer\StubDataAccessLayer.csproj", "{6C88E84B-60A3-4700-8CDE-D26EE97BDDC1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntitiesLayer", "EntitiesLayer\EntitiesLayer.csproj", "{9B1E2266-55B4-41DA-AD50-78E7A214CA34}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{A8DBF60B-24F1-43F3-A0A6-7F5DE6B94408}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesLayer", "EntitiesLayer_2\EntitiesLayer.csproj", "{BF46F03B-BF26-4FFF-9D9F-C5CBA895A236}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +19,14 @@ Global
 		{5E8C6309-6F42-4589-868D-8B08E3847371}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E8C6309-6F42-4589-868D-8B08E3847371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E8C6309-6F42-4589-868D-8B08E3847371}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78013B54-1A00-4725-8890-9D3295F42E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78013B54-1A00-4725-8890-9D3295F42E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78013B54-1A00-4725-8890-9D3295F42E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78013B54-1A00-4725-8890-9D3295F42E0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C88E84B-60A3-4700-8CDE-D26EE97BDDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C88E84B-60A3-4700-8CDE-D26EE97BDDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C88E84B-60A3-4700-8CDE-D26EE97BDDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C88E84B-60A3-4700-8CDE-D26EE97BDDC1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B1E2266-55B4-41DA-AD50-78E7A214CA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B1E2266-55B4-41DA-AD50-78E7A214CA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B1E2266-55B4-41DA-AD50-78E7A214CA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B1E2266-55B4-41DA-AD50-78E7A214CA34}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8DBF60B-24F1-43F3-A0A6-7F5DE6B94408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8DBF60B-24F1-43F3-A0A6-7F5DE6B94408}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8DBF60B-24F1-43F3-A0A6-7F5DE6B94408}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8DBF60B-24F1-43F3-A0A6-7F5DE6B94408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF46F03B-BF26-4FFF-9D9F-C5CBA895A236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF46F03B-BF26-4FFF-9D9F-C5CBA895A236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF46F03B-BF26-4FFF-9D9F-C5CBA895A236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF46F03B-BF26-4FFF-9D9F-C5CBA895A236}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

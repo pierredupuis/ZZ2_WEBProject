@@ -134,18 +134,22 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{78013b54-1a00-4725-8890-9d3295f42e0a}</Project>
-      <Name>BusinessLayer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer_2\DataAccessLayer.csproj">
+      <Project>{938e7aea-7916-4624-a9a8-898b9f2823c1}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer_2\EntitiesLayer.csproj">
+      <Project>{bf46f03b-bf26-4fff-9d9f-c5cba895a236}</Project>
+      <Name>EntitiesLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

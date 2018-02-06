@@ -1,0 +1,2 @@
+E:\ZZ2_WEBProject\DAL & API\DataAccessLayer_2\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\ZZ2_WEBProject\DAL & API\DataAccessLayer_2\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
