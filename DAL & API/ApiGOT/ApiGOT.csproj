@@ -114,9 +114,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{a8dbf60b-24f1-43f3-a0a6-7f5de6b94408}</Project>
-      <Name>DataAccessLayer</Name>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{c8900c00-0ec3-4c0d-9d0e-39e4426e13b1}</Project>
+      <Name>BusinessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
       <Project>{9b1e2266-55b4-41da-ad50-78e7a214ca34}</Project>
