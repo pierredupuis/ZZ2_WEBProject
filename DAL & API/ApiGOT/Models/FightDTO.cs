@@ -12,6 +12,7 @@ namespace ApiGOT.Models
         public int HouseChallenging { get; set; }
         public int HouseChallenged { get; set; }
         public int WinningHouse { get; set; }
+        public int Id { get; set; }
 
         public FightDTO(Fight fight)
         {

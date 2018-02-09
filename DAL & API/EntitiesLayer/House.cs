@@ -23,7 +23,5 @@ namespace EntitiesLayer
             name = p_name;
             numberOfUnits = p_numberOfUnits;
         }
-
-
     }
 }
