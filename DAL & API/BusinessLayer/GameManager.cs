@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DataAccessLayer;
+using EntitiesLayer;
 
 namespace BusinessLayer
 {
     public class GameManager
     {
-        public List<Fight> GetFights()
+        public static List<Fight> GetFights()
         {
             return DalManager.Instance.GetFights();
         }
