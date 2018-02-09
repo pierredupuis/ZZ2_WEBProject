@@ -15,5 +15,9 @@ namespace BusinessLayer
         {
             return DalManager.Instance.GetFights();
         }
+        public static List<House> GetHouses()
+        {
+            return DalManager.Instance.GetHouses();
+        }
     }
 }
