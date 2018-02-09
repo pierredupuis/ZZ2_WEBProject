@@ -8,15 +8,15 @@ namespace DataAccessLayer
     interface IDal
     {
         List<House> GetHouses();
-        House GetHouseById(int h);
+        /*House GetHouseById(int h);
         /*List<Fight> GetFights();
         Fight GetFightById(int f);
         List<Territory> GetTerritories();
         Territory GetTerritoryById(int t);
         List<Character> GetCharacters();
-        Character GetCharacterById(int c);
+        Character GetCharacterById(int c);*/
         void AddHouse(House h);
-        void AddCharacter(Character c);
+        /*void AddCharacter(Character c);
         void AddTerritory(Territory t);
         void AddFight(Fight f);
         void DeleteHouse(House h);

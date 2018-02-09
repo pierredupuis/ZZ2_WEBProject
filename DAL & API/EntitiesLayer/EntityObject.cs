@@ -8,7 +8,8 @@ namespace EntitiesLayer
 {
     public abstract class EntityObject
     {
-        protected int id;
+        private int id;
+        public int Id { get => id; set => id = value; }
     }
 
     public enum Relashionship { FRIENDSHIP, LOVE, HATRED, RIVALRY}

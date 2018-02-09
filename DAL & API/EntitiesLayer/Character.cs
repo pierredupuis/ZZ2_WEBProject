@@ -25,7 +25,7 @@ namespace EntitiesLayer
 
         public Character(int p_bravoury = 0, int p_crazyness = 0, string p_firstName="Undefined", string p_lastName="Undefined", int p_pv=0)
         {
-            id = currentId;
+            Id = currentId;
             currentId++;
 
             bravoury = p_bravoury;
