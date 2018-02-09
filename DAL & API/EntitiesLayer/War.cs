@@ -12,7 +12,7 @@ namespace EntitiesLayer
 
         public War()
         {
-            id = currId;
+            Id = currId;
             currId++;
         }
     }

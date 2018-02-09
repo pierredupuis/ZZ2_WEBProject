@@ -20,7 +20,7 @@ namespace EntitiesLayer
             owner = p_owner;
             type = p_type;
 
-            id = currId;
+            Id = currId;
             currId++;
         }
     }

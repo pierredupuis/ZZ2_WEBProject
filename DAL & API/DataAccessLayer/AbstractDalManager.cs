@@ -8,15 +8,15 @@ namespace DataAccessLayer
     public abstract class AbstractDalManager : IDal
     {
         abstract public List<House> GetHouses();
-        abstract public House GetHouseById(int h);
+        /*abstract public House GetHouseById(int h);
         /*abstract public List<Fight> GetFights();
         abstract public Fight GetFightById(int f);
         abstract public List<Territory> GetTerritories();
         abstract public Territory GetTerritoryById(int t);
         abstract public List<Character> GetCharacters();
-        abstract public Character GetCharacterById(int c);
+        abstract public Character GetCharacterById(int c);*/
         abstract public void AddHouse(House h);
-        abstract public void AddCharacter(Character c);
+        /*abstract public void AddCharacter(Character c);
         abstract public void AddTerritory(Territory t);
         abstract public void AddFight(Fight f);
         abstract public void DeleteHouse(House h);
