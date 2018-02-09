@@ -18,3 +18,9 @@ C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\Api
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.csproj.CoreCompileInputs.cache
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.dll
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\bin\BusinessLayer.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\bin\EntitiesLayer.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\bin\DataAccessLayer_2.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\bin\BusinessLayer.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\bin\EntitiesLayer.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\ApiGOT\bin\DataAccessLayer_2.pdb

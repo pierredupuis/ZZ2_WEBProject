@@ -15,7 +15,7 @@ namespace DataAccessLayer
         abstract public Territory GetTerritoryById(int t);
         abstract public List<Character> GetCharacters();
         abstract public Character GetCharacterById(int c);*/
-        abstract public void AddHouse(House h);
+        abstract public void AddHouse(int id, string name, int nOfU);
         /*abstract public void AddCharacter(Character c);
         abstract public void AddTerritory(Territory t);
         abstract public void AddFight(Fight f);

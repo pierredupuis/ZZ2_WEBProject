@@ -1,2 +1,10 @@
 E:\ZZ2_WEBProject\DAL & API\DataAccessLayer_2\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 E:\ZZ2_WEBProject\DAL & API\DataAccessLayer_2\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\DataAccessLayer_2.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\DataAccessLayer_2.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.pdb

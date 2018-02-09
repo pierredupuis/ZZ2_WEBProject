@@ -1,0 +1,10 @@
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\DataAccessLayer_2.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\DataAccessLayer_2.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.pdb

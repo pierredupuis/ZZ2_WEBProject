@@ -6,19 +6,17 @@ using System.Net.Http;
 using System.Web.Http;
 
 using ApiGOT.Models;
-using DataAccessLayer;
+using BusinessLayer;
 
 namespace ApiGOT.Controllers
 {
     public class CharacterController : ApiController
     {
-        public List<CharacterDTO> GetAllCharacters()
+        /*public List<CharacterDTO> GetAllCharacters()
         {
             List<CharacterDTO> list = new List<CharacterDTO>();
 
-            DalManager m = DalManager.Instance;
-
-            foreach(var charac in m.getAllCharacters())
+            foreach(var charac in GameManager.getCharacters())
             {
                 list.Add(new CharacterDTO(charac));
             }
@@ -35,6 +33,6 @@ namespace ApiGOT.Controllers
         {
             DalManager m = DalManager.Instance;
             m.AddCharacter(character);
-        }
+        }*/
     }
 }

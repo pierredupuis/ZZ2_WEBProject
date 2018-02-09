@@ -9,7 +9,7 @@ namespace ApiGOT.Controllers
 {
     public class FightController : ApiController
     {
-        public List<FightDTO> GetAllFights()
+        /*public List<FightDTO> GetAllFights()
         {
             List<FightDTO> fights = new List<FightDTO>();
 
@@ -19,6 +19,6 @@ namespace ApiGOT.Controllers
             }
 
             return fights;
-        }
+        }*/
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessLayer;
+/*using BusinessLayer;
 
 namespace game_of_thrones
 {
@@ -18,3 +18,4 @@ namespace game_of_thrones
         }
     }
 }
+*/

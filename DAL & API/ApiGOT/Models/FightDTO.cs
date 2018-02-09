@@ -14,13 +14,13 @@ namespace ApiGOT.Models
         public int WinningHouse { get; set; }
         public int Id { get; set; }
 
-        public FightDTO(Fight fight)
+        /*public FightDTO(Fight fight)
         {
             Id = fight.Id;
-            HouseChallenging = fight.HouseChallenging;
-            HouseChallenged = fight.HouseChallenged;
+            HouseChallenging = fight.HouseChallenger1;
+            HouseChallenged = fight.HouseChallenger2;
             WinningHouse = fight.WinningHouse;
-        }
+        }*/
 
     }
 }

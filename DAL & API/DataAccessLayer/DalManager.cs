@@ -10,12 +10,13 @@ namespace DataAccessLayer
     public class DalManager : AbstractDalManager
     {
         private static readonly Lazy<DalManager> lazy = new Lazy<DalManager>(() => new DalManager());
-        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
+        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
+        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
         public static DalManager Instance { get { return lazy.Value; } }
         DalManager() {}
             
 
-/*        public List<Fight> GetFights()
+        /*public List<Fight> GetFights()
         {
             List<Fight> fights = new List<Fight>();
             string sql = "SELECT * FROM Fights";
@@ -45,6 +46,8 @@ namespace DataAccessLayer
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
                     SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    rdr.Read();
                     int id = rdr.GetInt32(0);
                     string name = rdr.GetString(1);
                     int nOfU = rdr.GetInt32(2);
@@ -58,7 +61,7 @@ namespace DataAccessLayer
             return new House();
         }*/
 
-        public void AddHouse(int id, string name, int nOfU)
+        public override void AddHouse(int id, string name, int nOfU)
         {
             using (SqlConnection con = new SqlConnection(_connectionString))
             {

@@ -11,10 +11,10 @@ namespace BusinessLayer
 {
     public class GameManager
     {
-        public static List<Fight> GetFights()
+        /*public static List<Fight> GetFights()
         {
             return DalManager.Instance.GetFights();
-        }
+        }*/
         public static List<House> GetHouses()
         {
             return DalManager.Instance.GetHouses();

@@ -5,11 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using ApiGOT.Models;
+using BusinessLayer;
+
 namespace ApiGOT.Controllers
 {
     public class TerritoryController : ApiController
     {
-        public List<TerritoryDTO> getAllTerritories()
+        /*public List<TerritoryDTO> getAllTerritories()
         {
             List<TerritoryDTO> list = new List<TerritoryDTO>();
 
@@ -21,6 +24,6 @@ namespace ApiGOT.Controllers
             }
 
             return list;
-        }
+        }*/
     }
 }

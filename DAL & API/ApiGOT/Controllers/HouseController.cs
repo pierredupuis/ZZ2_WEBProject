@@ -5,6 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using ApiGOT.Models;
+using BusinessLayer;
+
 namespace ApiGOT.Controllers
 {
     public class HouseController : ApiController
@@ -13,7 +16,7 @@ namespace ApiGOT.Controllers
         {
             List<HouseDTO> houses = new List<HouseDTO>();
 
-            foreach (var house in GameManager.getHouses())
+            foreach (var house in GameManager.GetHouses())
             {
                 houses.Add(new HouseDTO(house));
             }

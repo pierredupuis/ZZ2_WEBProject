@@ -13,9 +13,9 @@ namespace ApiGOT.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Bravoury { get; set; }
-        public string Crazyness { get; set; }
-        public string Pv { get; set; }
+        public int Bravoury { get; set; }
+        public int Crazyness { get; set; }
+        public int Pv { get; set; }
 
         public CharacterDTO(Character character)
         {
