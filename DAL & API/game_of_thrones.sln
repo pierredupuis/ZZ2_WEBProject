@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game_of_thrones", "game_of_thrones\game_of_thrones.csproj", "{5E8C6309-6F42-4589-868D-8B08E3847371}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesLayer", "EntitiesLayer\EntitiesLayer.csproj", "{E0FAD293-49DA-45FD-BE6B-130CAD4739F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{938E7AEA-7916-4624-A9A8-898B9F2823C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationThrones", "WebApplicationThrones\WebApplicationThrones.csproj", "{4B319706-2856-4EBF-9040-BD1A42B8FB15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{938E7AEA-7916-4624-A9A8-898B9F2823C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B319706-2856-4EBF-9040-BD1A42B8FB15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B319706-2856-4EBF-9040-BD1A42B8FB15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B319706-2856-4EBF-9040-BD1A42B8FB15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B319706-2856-4EBF-9040-BD1A42B8FB15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

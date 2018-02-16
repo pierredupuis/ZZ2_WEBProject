@@ -4,3 +4,7 @@ C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\EntitiesLayer\obj\De
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.csproj.CoreCompileInputs.cache
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.dll
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\EntitiesLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\EntitiesLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.pdb

@@ -8,3 +8,10 @@ C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.pdb
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.dll
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\DataAccessLayer_2.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\DataAccessLayer_2.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.pdb
