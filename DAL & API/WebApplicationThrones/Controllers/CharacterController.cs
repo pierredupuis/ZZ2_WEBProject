@@ -15,8 +15,14 @@ namespace WebApplicationThrones.Controllers
     public class CharacterController : Controller
     {
 
-        // GET: Character
         public async Task<ActionResult> Index()
+        {
+            List<CharacterModel> models = await ListHouses();
+            return View(models);
+        }
+
+        // GET: Character
+        public async Task<List<CharacterModel>> ListHouses()
         {
             List<CharacterModel> Characters = new List<CharacterModel>();
             using (var client = new HttpClient())
@@ -35,7 +41,7 @@ namespace WebApplicationThrones.Controllers
                     Characters = JsonConvert.DeserializeObject<List<CharacterModel>>(temp);
                 }
             }
-            return View(Characters);
+            return Characters;
         }
       
         // GET: Character/Details/5
