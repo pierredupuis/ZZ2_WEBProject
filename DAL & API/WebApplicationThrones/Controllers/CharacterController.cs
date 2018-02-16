@@ -27,7 +27,6 @@ namespace WebApplicationThrones.Controllers
             List<CharacterModel> Characters = new List<CharacterModel>();
             using (var client = new HttpClient())
             {
-
                 client.BaseAddress = new Uri("http://localhost:11526/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
