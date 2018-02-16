@@ -12,10 +12,7 @@ namespace EntitiesLayer
         House houseChallenger2;
         House winningHouse;
 
-        public House HouseChallenger1 { get => houseChallenger1; set => houseChallenger1 = value; }
-        public House HouseChallenger2 { get => houseChallenger2; set => houseChallenger2 = value; }
-        public House WinningHouse { get => winningHouse; set => winningHouse = value; }
-        public int Id { get => base.Id; set => base.Id = value; }
+        
 
         public Fight(int p_id, House p_houseChallenger1, House p_houseChallenger2, House p_winningHouse)
         {
@@ -24,6 +21,45 @@ namespace EntitiesLayer
             WinningHouse = p_winningHouse;
 
             base.Id = p_id;
+        }
+
+        public House HouseChallenger1
+        {
+            get
+            {
+                return houseChallenger1;
+            }
+
+            set
+            {
+                houseChallenger1 = value;
+            }
+        }
+
+        public House HouseChallenger2
+        {
+            get
+            {
+                return houseChallenger2;
+            }
+
+            set
+            {
+                houseChallenger2 = value;
+            }
+        }
+
+        public House WinningHouse
+        {
+            get
+            {
+                return winningHouse;
+            }
+
+            set
+            {
+                winningHouse = value;
+            }
         }
     }
 }

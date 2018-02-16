@@ -9,7 +9,19 @@ namespace EntitiesLayer
     public abstract class EntityObject
     {
         private int id;
-        public int Id { get => id; set => id = value; }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
     }
 
     public enum Relashionship { FRIENDSHIP, LOVE, HATRED, RIVALRY}

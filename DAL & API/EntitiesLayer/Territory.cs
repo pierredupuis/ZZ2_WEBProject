@@ -13,7 +13,18 @@ namespace EntitiesLayer
 
         static int currId = 0;
 
-        internal House Owner { get => owner; set => owner = value; }
+        public House Owner
+        {
+            get
+            {
+                return owner;
+            }
+
+            set
+            {
+                owner = value;
+            }
+        }
 
         public Territory(TerritoryType p_type, House p_owner)
         {

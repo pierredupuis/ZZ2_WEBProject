@@ -12,9 +12,44 @@ namespace EntitiesLayer
         string name;
         int numberOfUnits;
 
-        public string Name { get => name; set => name = value; }
-        public int NumberOfUnits { get => numberOfUnits; set => numberOfUnits = value; }
-        internal Character[] Housers { get => housers; set => housers = value; }
+        public Character[] Housers
+        {
+            get
+            {
+                return housers;
+            }
+
+            set
+            {
+                housers = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public int NumberOfUnits
+        {
+            get
+            {
+                return numberOfUnits;
+            }
+
+            set
+            {
+                numberOfUnits = value;
+            }
+        }
 
         public void addHousers(Character c) { }
         public House(int p_id, string p_name = "Undefined", int p_numberOfUnits = 0)
