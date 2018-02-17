@@ -8,3 +8,12 @@ C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\De
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\karroum\Documents\Projets\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\DataAccessLayer_2.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\DataAccessLayer_2.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.pdb
