@@ -10,9 +10,8 @@ Projet web de ZZ2 (F2&amp;F5)
 * Web App : Listes d'éléments, Vues 'Create' pour House et Character. Attente de l'avancement de l'API pour créer/tester des vues 'Create', 'GetByID', 'Delete', 'Edit'
 
 # Penser à
-* Changer le path de la Base de Données selon le PC
-* Changer les numéros de port de chaque fonction des Controller de la WebApp si besoin
-   -> _Faire une classe statique contenant des variables api_port, webapp_port pour simplifier la modif_
+* Changer le path de la Base de Données selon le PC  (DataAccessLayer, DalManager.cs, l. 13-16)
+* Changer les numéros de port dans la classe statique "Globals" si besoin
 
 # API
 Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à faire. Modifie si ça correspond pas ou s'il en manque.
@@ -46,31 +45,31 @@ Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à fair
 Seuls les Index (Liste tous les éléments) ont été testés. Attente de l'API pour tester le reste.
 * Character
   * [X] Index
-  * [ ] Get(id)
+  * [X] Get(id)
   * [X] Create
   * [ ] Edit
-  * [ ] Delete
+  * [X] Delete
 * Fight
   * [X] Index
-  * [ ] Get(id)
+  * [X] Get(id)
   * [X] Create
   * [ ] Edit
-  * [ ] Delete
+  * [X] Delete
 * House
   * [X] Index
-  * [ ] Get(id)
+  * [X] Get(id)
   * [X] Create
   * [ ] Edit
-  * [ ] Delete
+  * [X] Delete
 * Territory
   * [X] Index
-  * [ ] Get(id)
+  * [X] Get(id)
   * [ ] Create
   * [ ] Edit
   * [ ] Delete
 * War
   * [X] Index
-  * [ ] Get(id)
+  * [X] Get(id)
   * [ ] Create
   * [ ] Edit
-  * [ ] Delete
+  * [X] Delete
