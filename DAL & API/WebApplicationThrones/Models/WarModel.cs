@@ -8,7 +8,8 @@ namespace WebApplicationThrones.Models
 {
     public class WarModel
     {
-		
+		public int ID { get; set; }
+
 		[Display(Name = "Alliance 1")]
         public List<HouseModel> Alliance1 { get; set; }
 		

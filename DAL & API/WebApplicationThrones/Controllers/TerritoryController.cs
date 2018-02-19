@@ -17,7 +17,7 @@ namespace WebApplicationThrones.Controllers
 
         // #################################################################################################
         // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
-        protected static async Task<List<TerritoryModel>> _GetTerritories()
+        public static async Task<List<TerritoryModel>> _GetTerritories()
         {
             List<TerritoryModel> Territories = new List<TerritoryModel>();
             using (var client = new HttpClient())
@@ -36,7 +36,7 @@ namespace WebApplicationThrones.Controllers
             }
             return Territories;
         }
-        protected static async Task<TerritoryModel> _GetTerritory(int ID)
+        public static async Task<TerritoryModel> _GetTerritory(int ID)
         {
             TerritoryModel Territory = null;
             using (var client = new HttpClient())
@@ -55,7 +55,7 @@ namespace WebApplicationThrones.Controllers
             }
             return Territory;
         }
-        protected static async void _PostTerritory(TerritoryModel cm)
+        public static async void _PostTerritory(TerritoryModel cm)
         {
             using (var client = new HttpClient())
             {

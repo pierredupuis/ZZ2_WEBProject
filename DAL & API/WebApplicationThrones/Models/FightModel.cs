@@ -9,6 +9,7 @@ namespace WebApplicationThrones.Models
 {
     public class FightModel
     {
+        public int ID { get; set; }
 
         [Display(Name = "Attacking House")]
         public HouseModel HouseChallenger { get; set; }

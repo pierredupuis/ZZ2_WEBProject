@@ -17,7 +17,7 @@ namespace WebApplicationThrones.Controllers
 
         // #################################################################################################
         // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
-        protected static async Task<List<CharacterModel>> _GetCharacters()
+        public static async Task<List<CharacterModel>> _GetCharacters()
         {
             List<CharacterModel> Characters = new List<CharacterModel>();
             using (var client = new HttpClient())
@@ -36,7 +36,7 @@ namespace WebApplicationThrones.Controllers
             }
             return Characters;
         }
-        protected static async Task<CharacterModel> _GetCharacter(int ID)
+        public static async Task<CharacterModel> _GetCharacter(int ID)
         {
             CharacterModel Character = null;
             using (var client = new HttpClient())
@@ -55,7 +55,7 @@ namespace WebApplicationThrones.Controllers
             }
             return Character;
         }
-        protected static async void _PostCharacter(CharacterModel cm)
+        public static async void _PostCharacter(CharacterModel cm)
         {
             using (var client = new HttpClient())
             {

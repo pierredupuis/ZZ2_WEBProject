@@ -10,6 +10,7 @@ namespace WebApplicationThrones.Models
 
     public class CharacterModel
     {
+        public int ID { get; set; }
 
         [Display(Name = "First Name")]
         public String FirstName { get; set; }

@@ -17,7 +17,7 @@ namespace WebApplicationThrones.Controllers
 
         // #################################################################################################
         // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
-        protected static async Task<List<HouseModel>> _GetHouses()
+        public static async Task<List<HouseModel>> _GetHouses()
         {
             List<HouseModel> Houses = new List<HouseModel>();
             using (var client = new HttpClient())
@@ -36,7 +36,7 @@ namespace WebApplicationThrones.Controllers
             }
             return Houses;
         }
-        protected static async Task<HouseModel> _GetHouse(int ID)
+        public static async Task<HouseModel> _GetHouse(int ID)
         {
             HouseModel House = null;
             using (var client = new HttpClient())
@@ -55,7 +55,7 @@ namespace WebApplicationThrones.Controllers
             }
             return House;
         }
-        protected static async void _PostHouse(HouseModel cm)
+        public static async void _PostHouse(HouseModel cm)
         {
             using (var client = new HttpClient())
             {

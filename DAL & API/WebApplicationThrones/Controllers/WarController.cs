@@ -16,7 +16,7 @@ namespace WebApplicationThrones.Controllers
     {
         // #################################################################################################
         // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
-        protected static async Task<List<WarModel>> _GetWars()
+        public static async Task<List<WarModel>> _GetWars()
         {
             List<WarModel> Wars = new List<WarModel>();
             using (var client = new HttpClient())
@@ -35,7 +35,7 @@ namespace WebApplicationThrones.Controllers
             }
             return Wars;
         }
-        protected static async Task<WarModel> _GetWar(int ID)
+        public static async Task<WarModel> _GetWar(int ID)
         {
             WarModel War = null;
             using (var client = new HttpClient())
@@ -54,7 +54,7 @@ namespace WebApplicationThrones.Controllers
             }
             return War;
         }
-        protected static async void _PostWar(WarModel cm)
+        public static async void _PostWar(WarModel cm)
         {
             using (var client = new HttpClient())
             {
@@ -86,8 +86,16 @@ namespace WebApplicationThrones.Controllers
          }
 
         // GET: War/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
+            IEnumerable<HouseModel> HouseList = await HouseController._GetHouses();
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (HouseModel hm in HouseList)
+            {
+                list.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
+            }
+            ViewBag.HouseList = list;
+
             return View();
         }
 
