@@ -8,7 +8,7 @@ namespace WebApplicationThrones.Models
 {
     public class HouseModel
     {
-        public String ID { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Name")]
         public String Name { get; set; }

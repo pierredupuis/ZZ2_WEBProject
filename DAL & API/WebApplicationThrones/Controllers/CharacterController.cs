@@ -15,26 +15,20 @@ namespace WebApplicationThrones.Controllers
     public class CharacterController : Controller
     {
 
-        public async Task<ActionResult> Index()
-        {
-            List<CharacterModel> models = await ListHouses();
-            return View(models);
-        }
-
-        // GET: Character
-        public async Task<List<CharacterModel>> ListHouses()
+        // #################################################################################################
+        // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
+        public static async Task<List<CharacterModel>> _GetCharacters()
         {
             List<CharacterModel> Characters = new List<CharacterModel>();
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:11526/");
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.GetAsync("api/Character");
 
-                if(response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     string temp = await response.Content.ReadAsStringAsync();
                     Characters = JsonConvert.DeserializeObject<List<CharacterModel>>(temp);
@@ -42,12 +36,54 @@ namespace WebApplicationThrones.Controllers
             }
             return Characters;
         }
+        public static async Task<CharacterModel> _GetCharacter(int ID)
+        {
+            CharacterModel Character = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Character/" + ID);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    Character = JsonConvert.DeserializeObject<CharacterModel>(temp);
+                }
+            }
+            return Character;
+        }
+        public static async void _PostCharacter(CharacterModel cm)
+        {
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                await client.PostAsJsonAsync("api/Character/Add", cm);
+
+            }
+        }
+
+        // #################################################################################################
+        // Méthodes de vue
+
+        public async Task<ActionResult> Index()
+        {
+            return View(await _GetCharacters());
+        }
+
+        
       
         // GET: Character/Details/5
-       /* public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int ID)
         {
-            return View();
-        }*/
+            return View(await _GetCharacter(ID));
+        }
 
         // GET: Character/Create
         public ActionResult Create()
@@ -57,22 +93,11 @@ namespace WebApplicationThrones.Controllers
 
         // POST: Character/Create
         [HttpPost]
-        public async Task<ActionResult> Create(CharacterModel cm)
+        public ActionResult Create(CharacterModel cm)
         {
             try
             {
-                using (var client = new HttpClient())
-                {
-
-                    client.BaseAddress = new Uri("http://localhost:11526/");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                    await client.PostAsJsonAsync("api/Character/Add", cm);
-
-                }
+                _PostCharacter(cm);
                 return RedirectToAction("Index");
             }
             catch
@@ -110,13 +135,23 @@ namespace WebApplicationThrones.Controllers
         }
 
         // POST: Character/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (var client = new HttpClient())
+                {
 
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                    await client.PostAsJsonAsync("api/Character/Delete/" + id + "/", (string)null);
+
+                }
                 return RedirectToAction("Index");
             }
             catch

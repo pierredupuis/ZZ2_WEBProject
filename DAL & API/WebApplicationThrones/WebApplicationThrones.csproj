@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -207,6 +208,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Globals.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Models\FightModel.cs" />
@@ -290,6 +292,22 @@
     <Content Include="Views\Fight\Create.cshtml" />
     <Content Include="Index.html" />
     <Content Include="Views\Character\Edit.cshtml" />
+    <Content Include="Views\House\Delete.cshtml" />
+    <Content Include="Views\Character\Delete.cshtml" />
+    <Content Include="Views\House\Details.cshtml" />
+    <Content Include="Views\Fight\Delete.cshtml" />
+    <Content Include="Views\Territory\Delete.cshtml" />
+    <Content Include="Views\War\Delete.cshtml" />
+    <Content Include="Views\Fight\Edit.cshtml" />
+    <Content Include="Views\Territory\Create.cshtml" />
+    <Content Include="Views\Territory\Details.cshtml" />
+    <Content Include="Views\War\Edit.cshtml" />
+    <Content Include="Views\War\Details.cshtml" />
+    <Content Include="Views\War\Create.cshtml" />
+    <Content Include="Views\Territory\Edit.cshtml" />
+    <Content Include="Views\House\Edit.cshtml" />
+    <Content Include="Views\Fight\Details.cshtml" />
+    <Content Include="Views\Character\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

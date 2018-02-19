@@ -8,7 +8,9 @@ namespace WebApplicationThrones.Models
 {
     public class TerritoryModel
     {
-		[Display(Name = "Territory Type")]
+        public int ID { get; set; }
+
+        [Display(Name = "Territory Type")]
         public TerritoryTypeEnum TerritoryType { get; set; }
 		
 		[Display(Name = "Owner")]

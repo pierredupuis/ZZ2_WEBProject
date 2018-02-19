@@ -15,38 +15,76 @@ namespace WebApplicationThrones.Controllers
     public class TerritoryController : Controller
     {
 
-        // GET: Territory
-        public async Task<ActionResult> Index()
+        // #################################################################################################
+        // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
+        public static async Task<List<TerritoryModel>> _GetTerritories()
         {
             List<TerritoryModel> Territories = new List<TerritoryModel>();
             using (var client = new HttpClient())
             {
-
-                client.BaseAddress = new Uri("http://localhost:11526/");
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.GetAsync("api/Territory");
 
-                if(response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     string temp = await response.Content.ReadAsStringAsync();
                     Territories = JsonConvert.DeserializeObject<List<TerritoryModel>>(temp);
-                    /*foreach(Territory h in listTMP)
-                    {
-                        Territorys.Add(new TerritoryModel(h));
-                    }*/
                 }
             }
-            return View(Territories);
+            return Territories;
         }
-      
-        // GET: Territory/Details/5
-       /* public ActionResult Details(int id)
+        public static async Task<TerritoryModel> _GetTerritory(int ID)
         {
-            return View();
-        }*/
+            TerritoryModel Territory = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Territory/" + ID);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    Territory = JsonConvert.DeserializeObject<TerritoryModel>(temp);
+                }
+            }
+            return Territory;
+        }
+        public static async void _PostTerritory(TerritoryModel cm)
+        {
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                await client.PostAsJsonAsync("api/Territory/Add", cm);
+
+            }
+        }
+
+        // #################################################################################################
+        // Méthodes de vue
+
+
+        // GET: Territory
+        public async Task<ActionResult> Index()
+        {
+            return View(await _GetTerritories());
+        }
+        
+
+        // GET: Territory/Details/5
+         public async Task<ActionResult> Details(int id)
+         {
+             return View(await _GetTerritory(id));
+         }
 
         // GET: Territory/Create
         public ActionResult Create()
@@ -56,22 +94,11 @@ namespace WebApplicationThrones.Controllers
 
         // POST: Territory/Create
         [HttpPost]
-        public async Task<ActionResult> Create(TerritoryModel tm)
+        public ActionResult Create(TerritoryModel tm)
         {
             try
             {
-                using (var client = new HttpClient())
-                {
-
-                    client.BaseAddress = new Uri("http://localhost:11526/");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                    await client.PostAsJsonAsync("api/Territory/Add", tm);
-
-                }
+                _PostTerritory(tm);
                 return RedirectToAction("Index");
             }
             catch
@@ -109,13 +136,23 @@ namespace WebApplicationThrones.Controllers
         }
 
         // POST: Territory/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (var client = new HttpClient())
+                {
 
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                    await client.PostAsJsonAsync("api/Territory/Delete/" + id + "/", (string)null);
+
+                }
                 return RedirectToAction("Index");
             }
             catch
