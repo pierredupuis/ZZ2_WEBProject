@@ -15,6 +15,63 @@ namespace WebApplicationThrones.Controllers
     public class FightController : Controller
     {
 
+        // #################################################################################################
+        // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
+        protected static async Task<List<FightModel>> _GetFights()
+        {
+            List<FightModel> Fights = new List<FightModel>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Fight");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    Fights = JsonConvert.DeserializeObject<List<FightModel>>(temp);
+                }
+            }
+            return Fights;
+        }
+        protected static async Task<FightModel> _GetFight(int ID)
+        {
+            FightModel Fight = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Fight/" + ID);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    Fight = JsonConvert.DeserializeObject<FightModel>(temp);
+                }
+            }
+            return Fight;
+        }
+        protected static async void _PostFight(FightModel cm)
+        {
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                await client.PostAsJsonAsync("api/Fight/Add", cm);
+
+            }
+        }
+
+        // #################################################################################################
+        // Méthodes de vue
+
         // GET: Fight
         public async Task<ActionResult> Index()
         {
@@ -37,12 +94,13 @@ namespace WebApplicationThrones.Controllers
             }
             return View(Fights);
         }
-      
+
+
         // GET: Fight/Details/5
-       /* public ActionResult Details(int id)
-        {
-            return View();
-        }*/
+         public async Task<ActionResult> Details(int id)
+         {
+             return View(await _GetFights());
+         }
 
         // GET: Fight/Create
         /*public async Task<ActionResult> Create()

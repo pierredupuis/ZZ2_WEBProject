@@ -298,6 +298,16 @@
     <Content Include="Views\Fight\Delete.cshtml" />
     <Content Include="Views\Territory\Delete.cshtml" />
     <Content Include="Views\War\Delete.cshtml" />
+    <Content Include="Views\Fight\Edit.cshtml" />
+    <Content Include="Views\Territory\Create.cshtml" />
+    <Content Include="Views\Territory\Details.cshtml" />
+    <Content Include="Views\War\Edit.cshtml" />
+    <Content Include="Views\War\Details.cshtml" />
+    <Content Include="Views\War\Create.cshtml" />
+    <Content Include="Views\Territory\Edit.cshtml" />
+    <Content Include="Views\House\Edit.cshtml" />
+    <Content Include="Views\Fight\Details.cshtml" />
+    <Content Include="Views\Character\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

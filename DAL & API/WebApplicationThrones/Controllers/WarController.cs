@@ -14,39 +14,76 @@ namespace WebApplicationThrones.Controllers
 {
     public class WarController : Controller
     {
-
-        // GET: War
-        public async Task<ActionResult> Index()
+        // #################################################################################################
+        // Méthodes _****() : Renvoient uniquement les données. Les méthodes créant des vues appellent ces méthodes => Economie de code, moins de recopie
+        protected static async Task<List<WarModel>> _GetWars()
         {
             List<WarModel> Wars = new List<WarModel>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/War");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    Wars = JsonConvert.DeserializeObject<List<WarModel>>(temp);
+                }
+            }
+            return Wars;
+        }
+        protected static async Task<WarModel> _GetWar(int ID)
+        {
+            WarModel War = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/War/" + ID);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    War = JsonConvert.DeserializeObject<WarModel>(temp);
+                }
+            }
+            return War;
+        }
+        protected static async void _PostWar(WarModel cm)
+        {
             using (var client = new HttpClient())
             {
 
                 client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync("api/War");
+                await client.PostAsJsonAsync("api/War/Add", cm);
 
-                if(response.IsSuccessStatusCode)
-                {
-                    string temp = await response.Content.ReadAsStringAsync();
-                    Wars = JsonConvert.DeserializeObject<List<WarModel>>(temp);
-                    /*foreach(War w in listTMP)
-                    {
-                        Wars.Add(new WarModel(w));
-                    }*/
-                }
             }
-            return View(Wars);
         }
-      
-        // GET: War/Details/5
-       /* public ActionResult Details(int id)
+
+        // #################################################################################################
+        // Méthodes de vue
+
+        // GET: War
+        public async Task<ActionResult> Index()
         {
-            return View();
-        }*/
+            return View(await _GetWars());
+        }
+
+
+
+        // GET: War/Details/5
+         public async Task<ActionResult> Details(int id)
+         {
+             return View(await _GetWar(id));
+         }
 
         // GET: War/Create
         public ActionResult Create()
@@ -56,22 +93,11 @@ namespace WebApplicationThrones.Controllers
 
         // POST: War/Create
         [HttpPost]
-        public async Task<ActionResult> Create(WarModel hm)
+        public ActionResult Create(WarModel wm)
         {
             try
             {
-                using (var client = new HttpClient())
-                {
-
-                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                    await client.PostAsJsonAsync("api/War/Add", hm);
-
-                }
+                _PostWar(wm);
                 return RedirectToAction("Index");
             }
             catch

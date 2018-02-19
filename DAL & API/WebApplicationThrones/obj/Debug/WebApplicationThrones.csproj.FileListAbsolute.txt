@@ -268,7 +268,6 @@ C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\System.Net.Http.Formatting.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\System.Web.Helpers.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\System.Web.Mvc.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\System.Web.Optimization.xml
@@ -292,7 +291,6 @@ C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\System.Net.Http.Formatting.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\System.Web.Helpers.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\System.Web.Mvc.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\System.Web.Optimization.resources.dll
