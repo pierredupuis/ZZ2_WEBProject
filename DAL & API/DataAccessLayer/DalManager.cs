@@ -12,7 +12,9 @@ namespace DataAccessLayer
         private static readonly Lazy<DalManager> lazy = new Lazy<DalManager>(() => new DalManager());
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
-        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\andumont7\\Source\\Repos\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\andumont7\\Source\\Repos\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+
         public static DalManager Instance { get { return lazy.Value; } }
         DalManager() {}
             

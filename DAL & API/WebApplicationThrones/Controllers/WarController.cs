@@ -22,7 +22,7 @@ namespace WebApplicationThrones.Controllers
             using (var client = new HttpClient())
             {
 
-                client.BaseAddress = new Uri("http://localhost:11526/");
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
@@ -63,7 +63,7 @@ namespace WebApplicationThrones.Controllers
                 using (var client = new HttpClient())
                 {
 
-                    client.BaseAddress = new Uri("http://localhost:11526/");
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(
                         new MediaTypeWithQualityHeaderValue("application/json"));
