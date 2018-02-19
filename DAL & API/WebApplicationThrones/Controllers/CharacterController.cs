@@ -29,8 +29,7 @@ namespace WebApplicationThrones.Controllers
             {
                 client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.GetAsync("api/Character");
 
@@ -66,9 +65,7 @@ namespace WebApplicationThrones.Controllers
 
                     client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                     client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     await client.PostAsJsonAsync("api/Character/Add", cm);
 
@@ -110,13 +107,23 @@ namespace WebApplicationThrones.Controllers
         }
 
         // POST: Character/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (var client = new HttpClient())
+                {
 
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                    await client.PostAsJsonAsync("api/Character/Delete/" + id + "/", (string)null);
+
+                }
                 return RedirectToAction("Index");
             }
             catch

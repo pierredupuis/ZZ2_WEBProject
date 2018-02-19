@@ -292,6 +292,12 @@
     <Content Include="Views\Fight\Create.cshtml" />
     <Content Include="Index.html" />
     <Content Include="Views\Character\Edit.cshtml" />
+    <Content Include="Views\House\Delete.cshtml" />
+    <Content Include="Views\Character\Delete.cshtml" />
+    <Content Include="Views\House\Details.cshtml" />
+    <Content Include="Views\Fight\Delete.cshtml" />
+    <Content Include="Views\Territory\Delete.cshtml" />
+    <Content Include="Views\War\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
