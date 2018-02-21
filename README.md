@@ -43,33 +43,38 @@ Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à fair
   
 # Web App
 Seuls les Index (Liste tous les éléments) ont été testés. Attente de l'API pour tester le reste.
-* Character (Testés)
+* [ ] Character
   * [X] Index
   * [X] Get(id)
   * [X] Create
-  * [ ] Edit
+  * [X] Edit
   * [X] Delete
-* Fight
+  * [ ] Fonctions testées 1/5
+* [ ] Fight
   * [X] Index
   * [X] Get(id)
   * [X] Create
-  * [ ] Edit
+  * [X] Edit
   * [X] Delete
-* House
+  * [ ] Fonctions testées 1/5
+* [X] House
   * [X] Index
   * [X] Get(id)
   * [X] Create
-  * [ ] Edit
+  * [X] Edit
   * [X] Delete
-* Territory
+  * [X] Fonctions ci-dessus testées (Controller API de Test, HouseTestController.cs)
+* [ ] Territory
   * [X] Index
   * [X] Get(id)
   * [ ] Create
-  * [ ] Edit
-  * [ ] Delete
-* War
+  * [X] Edit
+  * [X] Delete
+  * [ ] Fonctions testées  1/5
+* [ ] War
   * [X] Index
   * [X] Get(id)
   * [ ] Create
-  * [ ] Edit
+  * [X] Edit
   * [X] Delete
+  * [ ] Fonctions testées 1/5
