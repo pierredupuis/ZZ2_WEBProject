@@ -55,19 +55,6 @@ namespace WebApplicationThrones.Controllers
             }
             return Character;
         }
-        public static async void _PostCharacter(CharacterModel cm)
-        {
-            using (var client = new HttpClient())
-            {
-
-                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                await client.PostAsJsonAsync("api/Character/Add", cm);
-
-            }
-        }
 
         // #################################################################################################
         // Méthodes de vue
@@ -93,11 +80,20 @@ namespace WebApplicationThrones.Controllers
 
         // POST: Character/Create
         [HttpPost]
-        public ActionResult Create(CharacterModel cm)
+        public async Task<ActionResult> Create(CharacterModel cm)
         {
             try
             {
-                _PostCharacter(cm);
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    await client.PostAsJsonAsync("api/Character/Add", cm);
+
+                }
                 return RedirectToAction("Index");
             }
             catch
