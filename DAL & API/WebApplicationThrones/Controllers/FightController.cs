@@ -88,15 +88,23 @@ namespace WebApplicationThrones.Controllers
         // GET: Fight/Create
         public async Task<ActionResult> Create()
         {
-            IEnumerable<HouseModel> HouseList = await HouseController._GetHouses();
-            List<SelectListItem> list = new List<SelectListItem>();
-            foreach(HouseModel hm in HouseList)
+            List<HouseModel> HouseList = await HouseController._GetHouses();
+            if (HouseList.Count > 0)
             {
-                list.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
-            }
-            ViewBag.HouseList = list;
+                List<SelectListItem> list = new List<SelectListItem>();
+                
+                foreach (HouseModel hm in HouseList)
+                {
+                    list.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
+                }
+                ViewBag.HouseList = list;
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: Fight/Create

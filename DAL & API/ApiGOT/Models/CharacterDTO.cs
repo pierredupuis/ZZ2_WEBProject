@@ -17,6 +17,11 @@ namespace ApiGOT.Models
         public int Crazyness { get; set; }
         public int Pv { get; set; }
 
+        public CharacterDTO()
+        {
+
+        }
+
         public CharacterDTO(Character character)
         {
             Id = character.Id;

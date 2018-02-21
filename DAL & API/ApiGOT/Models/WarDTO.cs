@@ -7,5 +7,9 @@ namespace ApiGOT.Models
 {
     public class WarDTO
     {
+        public WarDTO()
+        {
+
+        }
     }
 }

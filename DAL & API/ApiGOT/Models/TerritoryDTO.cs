@@ -12,6 +12,11 @@ namespace ApiGOT.Models
         public int Id { get; set; }
         public int Owner { get; set; }
 
+
+        public TerritoryDTO()
+        {
+
+        }
         /*public TerritoryDTO(Territory territory)
         {
             Id = territory.Id;
