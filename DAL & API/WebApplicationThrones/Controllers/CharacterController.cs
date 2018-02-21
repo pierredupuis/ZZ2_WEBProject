@@ -103,19 +103,31 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: Character/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            return View(await _GetCharacter(id));
         }
 
         // POST: Character/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public async Task<ActionResult> Edit(int id, CharacterModel cm)
         {
             try
             {
-                // TODO: Add update logic here
+                using (var client = new HttpClient())
+                {
 
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/Character/" + id, cm);
+                    if (!res.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Error : " + res.StatusCode);
+                    }
+
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -125,9 +137,9 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: Character/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            return View(await _GetCharacter(id));
         }
 
         // POST: Character/Delete/5
@@ -145,7 +157,7 @@ namespace WebApplicationThrones.Controllers
                         new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                    await client.PostAsJsonAsync("api/Character/Delete/" + id + "/", (string)null);
+                    await client.DeleteAsync("api/Character/" + id);
 
                 }
                 return RedirectToAction("Index");

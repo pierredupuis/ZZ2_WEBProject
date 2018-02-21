@@ -37,7 +37,7 @@ namespace ApiGOT.Controllers
             return TestList.ElementAt(ID);
         }
         
-        public void PostHouse(HouseDTO house)
+        public void PostHouse([FromBody]HouseDTO house)
         {
 
             if (house != null)
@@ -49,7 +49,15 @@ namespace ApiGOT.Controllers
                throw new NullReferenceException();
             }
         }
-        
+
+        public void PutHouse(int id, [FromBody]HouseDTO house)
+        {
+            if(0 <= id && id < TestList.Count())
+            {
+                TestList[id] = house;
+            }
+        }
+
         public void DeleteHouse(int id)
         {
             foreach(HouseDTO h in TestList)
