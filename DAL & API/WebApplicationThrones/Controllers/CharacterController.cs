@@ -103,19 +103,31 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: Character/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            return View(await _GetCharacter(id));
         }
 
-        // POST: Character/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        // PUT: Character/Edit/5
+        [HttpPut]
+        public async Task<ActionResult> Edit(int id, CharacterModel cm)
         {
             try
             {
-                // TODO: Add update logic here
+                using (var client = new HttpClient())
+                {
 
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/Character/" + id + "/", cm);
+                    if (!res.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Error : " + res.StatusCode);
+                    }
+
+                }
                 return RedirectToAction("Index");
             }
             catch

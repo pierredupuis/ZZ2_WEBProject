@@ -123,8 +123,8 @@ namespace WebApplicationThrones.Controllers
             return View(await _GetHouse(id));
         }
 
-        // POST: House/Edit/5
-        [HttpPost]
+        // PUT: House/Edit/5
+        [HttpPut]
         public async Task<ActionResult> Edit(int id, HouseModel hm)
         {
             try
@@ -136,7 +136,7 @@ namespace WebApplicationThrones.Controllers
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage res = await client.PostAsJsonAsync("api/House/Edit/" + id + "/", hm);
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/HouseTest/" + id + "/", hm);
                     if (!res.IsSuccessStatusCode)
                     {
                         throw new Exception("Error : " + res.StatusCode);

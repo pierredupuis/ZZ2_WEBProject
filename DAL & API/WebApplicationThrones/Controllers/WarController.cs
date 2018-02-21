@@ -94,7 +94,7 @@ namespace WebApplicationThrones.Controllers
             {
                 list.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
             }
-            ViewBag.HouseList = list;
+            ViewBag.WarList = list;
 
             return View();
         }
@@ -115,19 +115,31 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: War/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            return View(await _GetWar(id));
         }
 
-        // POST: War/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        // PUT: War/Edit/5
+        [HttpPut]
+        public async Task<ActionResult> Edit(int id, WarModel wm)
         {
             try
             {
-                // TODO: Add update logic here
+                using (var client = new HttpClient())
+                {
 
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/WarTest/" + id + "/", wm);
+                    if (!res.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Error : " + res.StatusCode);
+                    }
+
+                }
                 return RedirectToAction("Index");
             }
             catch
