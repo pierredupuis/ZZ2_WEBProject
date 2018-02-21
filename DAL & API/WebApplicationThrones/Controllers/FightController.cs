@@ -55,19 +55,6 @@ namespace WebApplicationThrones.Controllers
             }
             return Fight;
         }
-        public static async void _PostFight(FightModel cm)
-        {
-            using (var client = new HttpClient())
-            {
-
-                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                await client.PostAsJsonAsync("api/Fight/Add", cm);
-
-            }
-        }
 
         // #################################################################################################
         // Méthodes de vue
@@ -109,11 +96,20 @@ namespace WebApplicationThrones.Controllers
 
         // POST: Fight/Create
         [HttpPost]
-        public ActionResult Create(FightModel fm)
+        public async Task<ActionResult> Create(FightModel fm)
         {
             try
             {
-                _PostFight(fm);
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    await client.PostAsJsonAsync("api/Fight/Add", fm);
+
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -157,9 +153,9 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: Fight/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            return View(await _GetFight(id));
         }
 
         // POST: Fight/Delete/5
@@ -177,7 +173,7 @@ namespace WebApplicationThrones.Controllers
                         new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                    await client.PostAsJsonAsync("api/Fight/Delete/" + id + "/", (string)null);
+                    await client.DeleteAsync("api/Fight/" + id);
 
                 }
                 return RedirectToAction("Index");

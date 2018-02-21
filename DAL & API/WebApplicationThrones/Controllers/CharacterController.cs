@@ -108,8 +108,8 @@ namespace WebApplicationThrones.Controllers
             return View(await _GetCharacter(id));
         }
 
-        // PUT: Character/Edit/5
-        [HttpPut]
+        // POST: Character/Edit/5
+        [HttpPost]
         public async Task<ActionResult> Edit(int id, CharacterModel cm)
         {
             try
@@ -121,7 +121,7 @@ namespace WebApplicationThrones.Controllers
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage res = await client.PutAsJsonAsync("api/Character/" + id + "/", cm);
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/Character/" + id, cm);
                     if (!res.IsSuccessStatusCode)
                     {
                         throw new Exception("Error : " + res.StatusCode);
@@ -137,9 +137,9 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: Character/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            return View(await _GetCharacter(id));
         }
 
         // POST: Character/Delete/5
@@ -157,7 +157,7 @@ namespace WebApplicationThrones.Controllers
                         new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                    await client.PostAsJsonAsync("api/Character/Delete/" + id + "/", (string)null);
+                    await client.DeleteAsync("api/Character/" + id);
 
                 }
                 return RedirectToAction("Index");

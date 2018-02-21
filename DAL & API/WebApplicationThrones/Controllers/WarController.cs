@@ -54,19 +54,6 @@ namespace WebApplicationThrones.Controllers
             }
             return War;
         }
-        public static async void _PostWar(WarModel cm)
-        {
-            using (var client = new HttpClient())
-            {
-
-                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                await client.PostAsJsonAsync("api/War/Add", cm);
-
-            }
-        }
 
         // #################################################################################################
         // Méthodes de vue
@@ -101,11 +88,20 @@ namespace WebApplicationThrones.Controllers
 
         // POST: War/Create
         [HttpPost]
-        public ActionResult Create(WarModel wm)
+        public async Task<ActionResult> Create(WarModel wm)
         {
             try
             {
-                _PostWar(wm);
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    await client.PostAsJsonAsync("api/War/Add", wm);
+
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -133,7 +129,7 @@ namespace WebApplicationThrones.Controllers
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage res = await client.PutAsJsonAsync("api/WarTest/" + id + "/", wm);
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/War/" + id + "/", wm);
                     if (!res.IsSuccessStatusCode)
                     {
                         throw new Exception("Error : " + res.StatusCode);
@@ -149,9 +145,9 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: War/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            return View(await _GetWar(id));
         }
 
         // POST: War/Delete/5
@@ -165,11 +161,10 @@ namespace WebApplicationThrones.Controllers
 
                     client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                     client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                    await client.PostAsJsonAsync("api/War/Delete/" + id + "/", (string)null);
+                    await client.DeleteAsync("api/War/" + id);
 
                 }
                 return RedirectToAction("Index");

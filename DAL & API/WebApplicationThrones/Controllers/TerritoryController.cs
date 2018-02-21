@@ -55,19 +55,6 @@ namespace WebApplicationThrones.Controllers
             }
             return Territory;
         }
-        public static async void _PostTerritory(TerritoryModel cm)
-        {
-            using (var client = new HttpClient())
-            {
-
-                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                await client.PostAsJsonAsync("api/Territory/Add", cm);
-
-            }
-        }
 
         // #################################################################################################
         // Méthodes de vue
@@ -94,11 +81,20 @@ namespace WebApplicationThrones.Controllers
 
         // POST: Territory/Create
         [HttpPost]
-        public ActionResult Create(TerritoryModel tm)
+        public async Task<ActionResult> Create(TerritoryModel tm)
         {
             try
             {
-                _PostTerritory(tm);
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    await client.PostAsJsonAsync("api/Territory/Add", tm);
+
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -126,7 +122,7 @@ namespace WebApplicationThrones.Controllers
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage res = await client.PutAsJsonAsync("api/TerritoryTest/" + id + "/", tm);
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/Territory/" + id + "/", tm);
                     if (!res.IsSuccessStatusCode)
                     {
                         throw new Exception("Error : " + res.StatusCode);
@@ -162,7 +158,7 @@ namespace WebApplicationThrones.Controllers
                         new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                    await client.PostAsJsonAsync("api/Territory/Delete/" + id + "/", (string)null);
+                    await client.DeleteAsync("api/Territory/" + id);
 
                 }
                 return RedirectToAction("Index");

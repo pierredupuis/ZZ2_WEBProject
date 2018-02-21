@@ -13,4 +13,3 @@ C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\EntitiesLayer\bin\Debug\En
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.csproj.CoreCompileInputs.cache
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\EntitiesLayer\obj\Debug\EntitiesLayer.csprojResolveAssemblyReference.cache
