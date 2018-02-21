@@ -63,7 +63,7 @@ namespace WebApplicationThrones.Controllers
                 client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+                
                 await client.PostAsJsonAsync("api/House/Add", cm);
 
             }
@@ -91,11 +91,24 @@ namespace WebApplicationThrones.Controllers
 
         // POST: House/Create
         [HttpPost]
-        public ActionResult Create(HouseModel hm)
+        public async Task<ActionResult> Create(HouseModel hm)
         {
             try
             {
-                _PostHouse(hm);
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage res = await client.PostAsJsonAsync("api/House/Add/", hm);
+                    if(!res.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Error : " + res.StatusCode);
+                    }
+
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -127,12 +140,12 @@ namespace WebApplicationThrones.Controllers
         }
 
         // GET: House/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            return View(await _GetHouse(id));
         }
 
-        // POST: House/Delete/5
+        // DELETE: House/5
         [HttpPost, ActionName("Delete")]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
@@ -143,11 +156,11 @@ namespace WebApplicationThrones.Controllers
 
                     client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                     client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
+                    //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-
-                    await client.PostAsJsonAsync("api/House/Delete/" + id + "/", (string)null);
+                    HttpResponseMessage res = await client.DeleteAsync("api/House/" + id);
+                    Console.WriteLine(res);
+                    //await client.DeleteAsJsonAsync("api/House/Delete/" + id + "/", (string)null);
 
                 }
                 return RedirectToAction("Index");

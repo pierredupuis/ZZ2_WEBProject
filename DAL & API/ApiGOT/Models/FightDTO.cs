@@ -14,6 +14,10 @@ namespace ApiGOT.Models
         public int WinningHouse { get; set; }
         public int Id { get; set; }
 
+        public FightDTO()
+        {
+
+        }
         /*public FightDTO(Fight fight)
         {
             Id = fight.Id;

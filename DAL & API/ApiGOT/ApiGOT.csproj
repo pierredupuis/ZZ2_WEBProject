@@ -90,6 +90,7 @@
     <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\FightController.cs" />
     <Compile Include="Controllers\HouseController.cs" />
+    <Compile Include="Controllers\HouseController2.cs" />
     <Compile Include="Controllers\TerritoryController.cs" />
     <Compile Include="Controllers\WarController.cs" />
     <Compile Include="Global.asax.cs">

@@ -17,6 +17,12 @@ namespace ApiGOT.Models
         [DataMember]
         public int NumberOfUnits { get; set; }
 
+        // Lors de la reception du JSON, créé un HouseDTO automatiquement : a besoin d'un constructeur par défaut.
+        public HouseDTO()
+        {
+            Id = -1;
+        }
+
         public HouseDTO(House house)
         {
             Id = house.Id;
