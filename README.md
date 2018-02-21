@@ -43,7 +43,7 @@ Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à fair
   
 # Web App
 Seuls les Index (Liste tous les éléments) ont été testés. Attente de l'API pour tester le reste.
-* Character
+* Character (Testés)
   * [X] Index
   * [X] Get(id)
   * [X] Create
