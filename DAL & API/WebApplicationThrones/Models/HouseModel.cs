@@ -24,11 +24,5 @@ namespace WebApplicationThrones.Models
 
         }
 
-        /*public HouseModel(House h)
-        {
-            Name = h.Name;
-            NumberOfUnits = h.NumberOfUnits;
-			Housers = h.Housers;
-        }*/
     }
 }

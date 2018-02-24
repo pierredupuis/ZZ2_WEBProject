@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using EntitiesLayer;
-using ApiGOT.Models;
+using EntitiesLayer.DTOs;
 
 namespace DataAccessLayer
 {
@@ -14,6 +14,13 @@ namespace DataAccessLayer
         void AddHouse(HouseDTO house);
         void EditHouse(HouseDTO house);
         void DeleteHouse(int id);
+
+        /* WhiteWalkers */
+        List<WhiteWalkerDTO> GetWhiteWalkers();
+        WhiteWalkerDTO GetWhiteWalkerById(int p_id);
+        void AddWhiteWalker(WhiteWalkerDTO house);
+        void EditWhiteWalker(WhiteWalkerDTO house);
+        void DeleteWhiteWalker(int id);
 
         /* Characters */
         List<CharacterDTO> GetCharacters();

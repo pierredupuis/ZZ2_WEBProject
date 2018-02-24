@@ -6,7 +6,7 @@ using System.Text;
 
 using EntitiesLayer;
 
-namespace ApiGOT.Models
+namespace EntitiesLayer.DTOs
 {
     public class CharacterDTO
     {

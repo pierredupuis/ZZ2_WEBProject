@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
-using EntitiesLayer;
-namespace ApiGOT.Models
+namespace EntitiesLayer.DTOs
 {
     public class HouseDTO
     {

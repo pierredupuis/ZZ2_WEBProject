@@ -26,7 +26,7 @@ namespace WebApplicationThrones.Controllers
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync("api/HouseTest");
+                HttpResponseMessage response = await client.GetAsync("api/House");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -45,7 +45,7 @@ namespace WebApplicationThrones.Controllers
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync("api/HouseTest/" + ID);
+                HttpResponseMessage response = await client.GetAsync("api/House/" + ID);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -89,7 +89,7 @@ namespace WebApplicationThrones.Controllers
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage res = await client.PostAsJsonAsync("api/HouseTest/Add/", hm);
+                    HttpResponseMessage res = await client.PostAsJsonAsync("api/House/Add/", hm);
                     if(!res.IsSuccessStatusCode)
                     {
                         throw new Exception("Error : " + res.StatusCode);
@@ -123,7 +123,7 @@ namespace WebApplicationThrones.Controllers
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage res = await client.PutAsJsonAsync("api/HouseTest/" + id + "/", hm);
+                    HttpResponseMessage res = await client.PutAsJsonAsync("api/House/" + id + "/", hm);
                     if (!res.IsSuccessStatusCode)
                     {
                         throw new Exception("Error : " + res.StatusCode);
@@ -156,7 +156,7 @@ namespace WebApplicationThrones.Controllers
                     client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
                     client.DefaultRequestHeaders.Accept.Clear();
 
-                    HttpResponseMessage res = await client.DeleteAsync("api/HouseTest/" + id);
+                    HttpResponseMessage res = await client.DeleteAsync("api/House/" + id);
 
                 }
                 return RedirectToAction("Index");

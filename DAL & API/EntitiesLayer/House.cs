@@ -3,60 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntitiesLayer.DTOs;
 
 namespace EntitiesLayer
 {
-    public class House : EntityObject
+    public class House : Army
     {
-        Character[] housers;
-        string name;
-        int numberOfUnits;
+        public Character[] Housers { get; set; }
+        public string Name { get; set; }
 
-        public Character[] Housers
-        {
-            get
-            {
-                return housers;
-            }
-
-            set
-            {
-                housers = value;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                name = value;
-            }
-        }
-
-        public int NumberOfUnits
-        {
-            get
-            {
-                return numberOfUnits;
-            }
-
-            set
-            {
-                numberOfUnits = value;
-            }
-        }
-
-        public void addHousers(Character c) { }
         public House(int p_id, string p_name = "Undefined", int p_numberOfUnits = 0)
         {
             Id = p_id;
-            name = p_name;
-            numberOfUnits = p_numberOfUnits;
+            Name = p_name;
+            NumberOfUnits = p_numberOfUnits;
         }
+        public House(HouseDTO hdto)
+        {
+            Id = hdto.Id;
+            Name = hdto.Name;
+            NumberOfUnits = hdto.NumberOfUnits;
+        }
+
+        public void addHousers(Character c) { }
+
+        public override void WinBattle(int Casualties, int EnnemyCasualties)
+        {
+            NumberOfUnits -= Casualties;
+            NumberOfUnits += 10; // Reputation Bonus. Great victories means more people willing to enroll !
+        }
+
+        public override void LoseBattle(int Casualties, int EnnemyCasualties)
+        {
+            NumberOfUnits -= Casualties;
+            NumberOfUnits -= 10; // Reputation Malus. Dude, you're losing, it's sad, but nobody wants to be with you at the end.
+        }
+
     }
 }

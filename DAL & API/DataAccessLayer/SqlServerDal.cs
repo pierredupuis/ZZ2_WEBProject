@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using EntitiesLayer;
-using ApiGOT.Models;
+using EntitiesLayer.DTOs;
 
 namespace DataAccessLayer
 {
     class SqlServerDal : IDal
     {
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
-        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\andumont7\\Source\\Repos\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
-        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
 
         public List<HouseDTO> GetHouses()
         {
@@ -119,6 +119,107 @@ namespace DataAccessLayer
                 sqlCon.Close();
             };
         }
+
+
+        public List<WhiteWalkerDTO> GetWhiteWalkers()
+        {
+            List<WhiteWalkerDTO> wws = new List<WhiteWalkerDTO>();
+            string sql = "SELECT * FROM WhiteWalkers";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        int nOfU = rdr.GetInt32(1);
+                        wws.Add(new WhiteWalkerDTO(id, nOfU));
+                    }
+                };
+                sqlCon.Close();
+            };
+            return wws;
+        }
+        public WhiteWalkerDTO GetWhiteWalkerById(int p_id)
+        {
+            WhiteWalkerDTO ww;
+
+            string sql = "SELECT * FROM WhiteWalkers WHERE WhiteWalkerId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = p_id;
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        int nOfU = rdr.GetInt32(1);
+                        ww = new WhiteWalkerDTO(id, nOfU);
+                    }
+                    else
+                    {
+                        ww = new WhiteWalkerDTO(-1);
+                    }
+                };
+                sqlCon.Close();
+            };
+            return ww;
+        }
+
+        public void AddWhiteWalker(WhiteWalkerDTO ww)
+        {
+            string sql = "INSERT INTO WhiteWalkers(Name, NumberOfUnits) Values(@name, @nbOfUnits)";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@nbOfUnits", SqlDbType.Int).Value = ww.NumberOfUnits;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+
+        public void EditWhiteWalker(WhiteWalkerDTO ww)
+        {
+            string sql = "UPDATE WhiteWalkers SET Name = @name, NumberOfUnits = @nbOfUnits WHERE WhiteWalkerId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@nbOfUnits", SqlDbType.Int).Value = ww.NumberOfUnits;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = ww.Id;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+        public void DeleteWhiteWalker(int id)
+        {
+            string sql = "DELETE FROM WhiteWalkers WHERE WhiteWalkerId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+
 
         public List<CharacterDTO> GetCharacters()
         {

@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using EntitiesLayer;
-using ApiGOT.Models;
+using EntitiesLayer.DTOs;
 
 namespace DataAccessLayer
 {
@@ -39,6 +39,27 @@ namespace DataAccessLayer
         public void DeleteHouse(int id)
         {
             bddInterf.DeleteHouse(id);
+        }
+
+        public List<WhiteWalkerDTO> GetWhiteWalkers()
+        {
+            return bddInterf.GetWhiteWalkers();
+        }
+        public WhiteWalkerDTO GetWhiteWalkerById(int p_id)
+        {
+            return bddInterf.GetWhiteWalkerById(p_id);
+        }
+        public void AddWhiteWalker(WhiteWalkerDTO ww)
+        {
+            bddInterf.AddWhiteWalker(ww);
+        }
+        public void EditWhiteWalker(WhiteWalkerDTO ww)
+        {
+            bddInterf.EditWhiteWalker(ww);
+        }
+        public void DeleteWhiteWalker(int id)
+        {
+            bddInterf.DeleteWhiteWalker(id);
         }
 
         public List<CharacterDTO> GetCharacters()

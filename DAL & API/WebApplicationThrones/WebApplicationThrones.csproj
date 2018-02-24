@@ -205,6 +205,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TerritoryController.cs" />
     <Compile Include="Controllers\WarController.cs" />
+    <Compile Include="Controllers\WhiteWalkerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +222,7 @@
     <Compile Include="Models\TerritoryModel.cs" />
     <Compile Include="Models\TerritoryTypeEnum.cs" />
     <Compile Include="Models\WarModel.cs" />
+    <Compile Include="Models\WhiteWalkerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,6 +310,11 @@
     <Content Include="Views\House\Edit.cshtml" />
     <Content Include="Views\Fight\Details.cshtml" />
     <Content Include="Views\Character\Details.cshtml" />
+    <Content Include="Views\WhiteWalker\Index.cshtml" />
+    <Content Include="Views\WhiteWalker\Create.cshtml" />
+    <Content Include="Views\WhiteWalker\Delete.cshtml" />
+    <Content Include="Views\WhiteWalker\Edit.cshtml" />
+    <Content Include="Views\WhiteWalker\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
