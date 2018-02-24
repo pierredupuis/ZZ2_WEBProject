@@ -12,27 +12,43 @@ namespace ApiGOT.Controllers
 {
     public class CharacterController : ApiController
     {
-        /*public List<CharacterDTO> GetAllCharacters()
+        public IHttpActionResult GetAllCharacters()
         {
-            List<CharacterDTO> list = new List<CharacterDTO>();
+            List<CharacterDTO> Characters = new List<CharacterDTO>();
 
-            foreach(var charac in GameManager.getCharacters())
+            foreach (var Character in GameManager.Instance.GetCharacters())
             {
-                list.Add(new CharacterDTO(charac));
+                Characters.Add(Character);
             }
 
-            return list;
+            return Ok(Characters);
         }
-        public CharacterDTO GetCharacter(int id)
-        {
-            DalManager m = DalManager.Instance;
 
-            return new CharacterDTO(m.getCharacter(id));
-        }
-        public void PostCharacter(CharacterDTO character)
+        public IHttpActionResult GetCharacterById(int id)
         {
-            DalManager m = DalManager.Instance;
-            m.AddCharacter(character);
-        }*/
+            CharacterDTO Character = GameManager.Instance.GetCharacterById(id);
+            if (Character.Id == -1)
+                return NotFound();
+            else
+                return Ok(Character);
+        }
+
+        public IHttpActionResult PostCharacter([FromBody] CharacterDTO Character)
+        {
+            GameManager.Instance.AddCharacter(Character);
+            return Ok();
+        }
+
+        public IHttpActionResult PutCharacter([FromBody] CharacterDTO Character)
+        {
+            GameManager.Instance.EditCharacter(Character);
+            return Ok();
+        }
+
+        public IHttpActionResult DeleteCharacter(int id)
+        {
+            GameManager.Instance.DeleteCharacter(id);
+            return Ok();
+        }
     }
 }

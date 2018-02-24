@@ -16,15 +16,15 @@ namespace ApiGOT.Models
 
         public FightDTO()
         {
-
+            Id = -1;
         }
-        /*public FightDTO(Fight fight)
-        {
-            Id = fight.Id;
-            HouseChallenging = fight.HouseChallenger1;
-            HouseChallenged = fight.HouseChallenger2;
-            WinningHouse = fight.WinningHouse;
-        }*/
 
+        public FightDTO(int houseChallenging, int houseChallenged, int winningHouse, int id)
+        {
+            HouseChallenging = houseChallenging;
+            HouseChallenged = houseChallenged;
+            WinningHouse = winningHouse;
+            Id = id;
+        }
     }
 }

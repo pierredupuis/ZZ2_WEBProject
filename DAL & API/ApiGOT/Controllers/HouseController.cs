@@ -21,7 +21,7 @@ namespace ApiGOT.Controllers
 
             foreach (var house in GameManager.Instance.GetHouses())
             {
-                houses.Add(new HouseDTO(house));
+                houses.Add(house);
             }
 
             return Ok(houses);
@@ -29,22 +29,22 @@ namespace ApiGOT.Controllers
 
         public IHttpActionResult GetHouseById(int id)
         {
-            House house = GameManager.Instance.GetHouseById(id);
+            HouseDTO house = GameManager.Instance.GetHouseById(id);
             if (house.Id == -1)
                 return NotFound();
             else
-                return Ok(new HouseDTO(house));
+                return Ok(house);
         }
 
         public IHttpActionResult PostHouse([FromBody] HouseDTO house)
         {
-            GameManager.Instance.AddHouse(house.Name, house.NumberOfUnits);
+            GameManager.Instance.AddHouse(house);
             return Ok();
         }
 
         public IHttpActionResult PutHouse([FromBody] HouseDTO house)
         {
-            GameManager.Instance.EditHouse(house.Id, house.Name, house.NumberOfUnits);
+            GameManager.Instance.EditHouse(house);
             return Ok();
         }
 

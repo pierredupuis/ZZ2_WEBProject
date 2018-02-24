@@ -16,21 +16,24 @@ namespace ApiGOT.Models
         public int Bravoury { get; set; }
         public int Crazyness { get; set; }
         public int Pv { get; set; }
+        public int Pf { get; set; }
+        public int HouseId { get; set; }
 
         public CharacterDTO()
         {
-
+            Id = -1;
         }
 
-        public CharacterDTO(Character character)
+        public CharacterDTO(int id, int bravoury, int crazyness, string firstName, string lastName, int pv, int pf, int houseId)
         {
-            Id = character.Id;
-            FirstName = character.FirstName;
-            LastName = character.LastName;
-            Bravoury = character.Bravoury;
-            Crazyness = character.Crazyness;
-            Pv = Pv;
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Bravoury = bravoury;
+            Crazyness = crazyness;
+            Pv = pv;
+            Pf = pf;
+            HouseId = houseId;
         }
-
     }
 }

@@ -15,7 +15,6 @@ namespace EntitiesLayer
         string lastName;
         int pv;
         CharacterRelation[] relationships;
-        static int currentId = 0;
 
         public int Bravoury
         {
@@ -95,11 +94,9 @@ namespace EntitiesLayer
             }
         }
 
-        public Character(int p_bravoury = 0, int p_crazyness = 0, string p_firstName="Undefined", string p_lastName="Undefined", int p_pv=0)
+        public Character(int p_id, int p_bravoury = 0, int p_crazyness = 0, string p_firstName="Undefined", string p_lastName="Undefined", int p_pv=0)
         {
-            Id = currentId;
-            currentId++;
-
+            Id = p_id;
             bravoury = p_bravoury;
             crazyness = p_crazyness;
             firstName = p_firstName;

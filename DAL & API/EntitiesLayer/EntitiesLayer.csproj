@@ -44,6 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="DTOs\CharacterDTO.cs" />
+    <Compile Include="DTOs\FightDTO.cs" />
+    <Compile Include="DTOs\HouseDTO.cs" />
+    <Compile Include="DTOs\TerritoryDTO.cs" />
+    <Compile Include="DTOs\WarDTO.cs" />
     <Compile Include="EntityObject.cs" />
     <Compile Include="Fight.cs" />
     <Compile Include="House.cs" />

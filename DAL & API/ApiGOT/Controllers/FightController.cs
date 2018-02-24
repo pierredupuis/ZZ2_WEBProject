@@ -5,20 +5,50 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+using ApiGOT.Models;
+using BusinessLayer;
+
 namespace ApiGOT.Controllers
 {
     public class FightController : ApiController
     {
-        /*public List<FightDTO> GetAllFights()
+        public IHttpActionResult GetAllFights()
         {
-            List<FightDTO> fights = new List<FightDTO>();
+            List<FightDTO> Fights = new List<FightDTO>();
 
-            foreach (var fight in GameManager.getFights())
+            foreach (var Fight in GameManager.Instance.GetFights())
             {
-                fights.Add(new FightDTO(fight));
+                Fights.Add(Fight);
             }
 
-            return fights;
-        }*/
+            return Ok(Fights);
+        }
+
+        public IHttpActionResult GetFightById(int id)
+        {
+            FightDTO Fight = GameManager.Instance.GetFightById(id);
+            if (Fight.Id == -1)
+                return NotFound();
+            else
+                return Ok(Fight);
+        }
+
+        public IHttpActionResult PostFight([FromBody] FightDTO Fight)
+        {
+            GameManager.Instance.AddFight(Fight);
+            return Ok();
+        }
+
+        public IHttpActionResult PutFight([FromBody] FightDTO Fight)
+        {
+            GameManager.Instance.EditFight(Fight);
+            return Ok();
+        }
+
+        public IHttpActionResult DeleteFight(int id)
+        {
+            GameManager.Instance.DeleteFight(id);
+            return Ok();
+        }
     }
 }

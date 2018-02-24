@@ -5,7 +5,7 @@ Projet web de ZZ2 (F2&amp;F5)
 # Avancement :
 
 * Base de données : Même avancement que l'API
-* BusinessLayer : Implémentation des opérations demandés pour les classes : House.
+* BusinessLayer : Implémentation des opérations demandés pour les classes : House, Fight et Character.
 * API : Méthodes implémentés non encore téstés (dépendance BusinessLayer)
 * Web App : Listes d'éléments, Vues 'Create' pour House et Character. Attente de l'avancement de l'API pour créer/tester des vues 'Create', 'GetByID', 'Delete', 'Edit'
 
@@ -14,17 +14,19 @@ Projet web de ZZ2 (F2&amp;F5)
 * Changer les numéros de port dans la classe statique "Globals" si besoin
 
 # API
-Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à faire. Modifie si ça correspond pas ou s'il en manque.
+
 * Character
-  * [ ] GetAll
-  * [ ] GetByID(id)
-  * [ ] Post(Character)
-  * [ ] Delete(id)
+  * [x] GetAll
+  * [x] GetByID(id)
+  * [x] Post(Character)
+  * [x] Edit(Character)
+  * [x] Delete(id)
 * Fight
-  * [ ] GetAll
-  * [ ] GetByID(id)
-  * [ ] Post(Fight)
-  * [ ] Delete(id)
+  * [x] GetAll
+  * [x] GetByID(id)
+  * [x] Post(Fight)
+  * [x] Edit(Fight)
+  * [x] Delete(id)
 * House
   * [x] GetAll (ne prends pas encore en charge housers)
   * [x] GetByID(id)

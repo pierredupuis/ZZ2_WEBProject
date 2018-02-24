@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using EntitiesLayer;
+using ApiGOT.Models;
 
 namespace DataAccessLayer
 {
@@ -19,69 +20,67 @@ namespace DataAccessLayer
             bddInterf = new SqlServerDal();
         }
             
-
-        /*public List<Fight> GetFights()
-        {
-            List<Fight> fights = new List<Fight>();
-            string sql = "SELECT * FROM Fights";
-            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
-            {
-                sqlCon.Open();
-                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
-                {
-                    SqlDataReader rdr = sqlCmd.ExecuteReader();
-                    int id = rdr.GetInt32(0);
-                    int chingId = rdr.GetInt32(1);
-                    int chedId = rdr.GetInt32(2);
-                    int winnId = rdr.GetInt32(3);
-                    fights.Add(new Fight(id, chingId, chedId, winnId));
-                };
-            } ;
-            return fights;
-        }
-        */
-        public List<House> GetHouses()
+        public List<HouseDTO> GetHouses()
         {
             return bddInterf.GetHouses();
         }
-        public House GetHouseById(int p_id)
+        public HouseDTO GetHouseById(int p_id)
         {
             return bddInterf.GetHouseById(p_id);
         }
-        public void AddHouse(string name, int nbOfUnits)
+        public void AddHouse(HouseDTO house)
         {
-            bddInterf.AddHouse(name, nbOfUnits);
+            bddInterf.AddHouse(house);
         }
-        public void EditHouse(int id, string name, int nbOfUnits)
+        public void EditHouse(HouseDTO house)
         {
-            bddInterf.EditHouse(id, name, nbOfUnits);
+            bddInterf.EditHouse(house);
         }
         public void DeleteHouse(int id)
         {
             bddInterf.DeleteHouse(id);
         }
 
-        //public override void AddHouse(int id, string name, int nOfU)
-        //{
-        //    using (SqlConnection con = new SqlConnection(_connectionString))
-        //    {
-        //        con.Open();
-        //        try
-        //        {
-        //            using (SqlCommand command = new SqlCommand(
-        //                "INSERT INTO Houses VALUES(@Id, @Name, @NOfU)", con))
-        //            {
-        //                command.Parameters.Add(new SqlParameter("Id", id));
-        //                command.Parameters.Add(new SqlParameter("Name", name));
-        //                command.Parameters.Add(new SqlParameter("NOfU", nOfU));
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
-        //        catch
-        //        {
-        //            Console.WriteLine("Count not insert.");
-        //        }
-        //    }
-        //}
+        public List<CharacterDTO> GetCharacters()
+        {
+            return bddInterf.GetCharacters();
+        }
+        public CharacterDTO GetCharacterById(int p_id)
+        {
+            return bddInterf.GetCharacterById(p_id);
+        }
+        public void AddCharacter(CharacterDTO Character)
+        {
+            bddInterf.AddCharacter(Character);
+        }
+        public void EditCharacter(CharacterDTO Character)
+        {
+            bddInterf.EditCharacter(Character);
+        }
+        public void DeleteCharacter(int id)
+        {
+            bddInterf.DeleteCharacter(id);
+        }
+
+        public List<FightDTO> GetFights()
+        {
+            return bddInterf.GetFights();
+        }
+        public FightDTO GetFightById(int p_id)
+        {
+            return bddInterf.GetFightById(p_id);
+        }
+        public void AddFight(FightDTO Fight)
+        {
+            bddInterf.AddFight(Fight);
+        }
+        public void EditFight(FightDTO Fight)
+        {
+            bddInterf.EditFight(Fight);
+        }
+        public void DeleteFight(int id)
+        {
+            bddInterf.DeleteFight(id);
+        }
     }
 }

@@ -2,36 +2,32 @@
 using System.Collections.Generic;
 using System.Text;
 using EntitiesLayer;
+using ApiGOT.Models;
 
 namespace DataAccessLayer
 {
     interface IDal
     {
         /* Houses */
-        List<House> GetHouses();
-        House GetHouseById(int p_id);
-        void AddHouse(string name, int nbOfUnits);
-        void EditHouse(int id, string name, int nbOfUnits);
+        List<HouseDTO> GetHouses();
+        HouseDTO GetHouseById(int p_id);
+        void AddHouse(HouseDTO house);
+        void EditHouse(HouseDTO house);
         void DeleteHouse(int id);
 
+        /* Characters */
+        List<CharacterDTO> GetCharacters();
+        CharacterDTO GetCharacterById(int id);
+        void AddCharacter(CharacterDTO c);
+        void EditCharacter(CharacterDTO c);
+        void DeleteCharacter(int id);
 
-        /*List<Fight> GetFights();
-        Fight GetFightById(int f);
-        List<Territory> GetTerritories();
-        Territory GetTerritoryById(int t);
-        List<Character> GetCharacters();
-        Character GetCharacterById(int c);*/
+        /* Fights */
 
-        /*void AddCharacter(Character c);
-        void AddTerritory(Territory t);
-        void AddFight(Fight f);
-        
-        void DeleteCharacter(Character c);
-        void DeleteTerritory(Territory t);
-        void DeleteFight(Fight f);
-        void UpdateHouse(House h);
-        void UpdateCharacter(Character c);
-        void UpdateTerritory(Territory t);
-        void UpdateFight(Fight f);*/
+        List<FightDTO> GetFights();
+        FightDTO GetFightById(int id);
+        void AddFight(FightDTO f);
+        void EditFight(FightDTO f);
+        void DeleteFight(int id);
     }
 }
