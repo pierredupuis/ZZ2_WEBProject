@@ -39,5 +39,66 @@ namespace DataAccessLayer
             };
             return houses;
         }
+        public House GetHouseById(int p_id)
+        {
+            House house;
+
+            string sql = "SELECT * FROM Houses WHERE HouseId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = p_id;
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        string name = rdr.GetString(1);
+                        int nOfU = rdr.GetInt32(2);
+                        house = new House(id, name, nOfU);
+                    }
+                    else
+                    {
+                        house = new House(-1);
+                    }
+                };
+                sqlCon.Close();
+            };
+            return house;
+        }
+
+        public void AddHouse(string name, int nbOfUnits)
+        {
+            string sql = "INSERT INTO Houses(Name, NumberOfUnits) Values(@name, @nbOfUnits)";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                    sqlCmd.Parameters.Add("@nbOfUnits", SqlDbType.Int).Value = nbOfUnits;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+        public void DeleteHouse(int id)
+        {
+            string sql = "DELETE FROM Houses WHERE HouseId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
     }
 }

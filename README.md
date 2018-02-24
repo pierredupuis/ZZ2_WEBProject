@@ -4,8 +4,8 @@ Projet web de ZZ2 (F2&amp;F5)
 
 # Avancement :
 
-* Base de données : -
-* BusinessLayer : -
+* Base de données : Même avancement que l'API
+* BusinessLayer : Implémentation des opérations demandés pour les classes : House.
 * API : Méthodes implémentés non encore téstés (dépendance BusinessLayer)
 * Web App : Listes d'éléments, Vues 'Create' pour House et Character. Attente de l'avancement de l'API pour créer/tester des vues 'Create', 'GetByID', 'Delete', 'Edit'
 
@@ -16,7 +16,7 @@ Projet web de ZZ2 (F2&amp;F5)
 # API
 Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à faire. Modifie si ça correspond pas ou s'il en manque.
 * Character
-  * [X] GetAll
+  * [ ] GetAll
   * [ ] GetByID(id)
   * [ ] Post(Character)
   * [ ] Delete(id)
@@ -26,10 +26,10 @@ Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à fair
   * [ ] Post(Fight)
   * [ ] Delete(id)
 * House
-  * [ ] GetAll
-  * [ ] GetByID(id)
-  * [ ] Post(House)
-  * [ ] Delete(id)
+  * [x] GetAll (ne prends pas encore en charge housers)
+  * [x] GetByID(id)
+  * [x] Post(House)
+  * [x] Delete(id) (devra peut être supprimer aussi les housers ? )
 * Territory
   * [ ] GetAll
   * [ ] GetByID(id)

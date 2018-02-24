@@ -7,19 +7,24 @@ namespace DataAccessLayer
 {
     interface IDal
     {
+        /* Houses */
         List<House> GetHouses();
-        /*House GetHouseById(int h);
+        House GetHouseById(int p_id);
+        void AddHouse(string name, int nbOfUnits);
+        void DeleteHouse(int id);
+
+
         /*List<Fight> GetFights();
         Fight GetFightById(int f);
         List<Territory> GetTerritories();
         Territory GetTerritoryById(int t);
         List<Character> GetCharacters();
         Character GetCharacterById(int c);*/
-        //void AddHouse(int id, string name, int nOfU);
+
         /*void AddCharacter(Character c);
         void AddTerritory(Territory t);
         void AddFight(Fight f);
-        void DeleteHouse(House h);
+        
         void DeleteCharacter(Character c);
         void DeleteTerritory(Territory t);
         void DeleteFight(Fight f);

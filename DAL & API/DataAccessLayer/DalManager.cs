@@ -44,10 +44,18 @@ namespace DataAccessLayer
         {
             return bddInterf.GetHouses();
         }
-        /*public override House GetHouseById(int h)
+        public House GetHouseById(int p_id)
         {
-            return new House();
-        }*/
+            return bddInterf.GetHouseById(p_id);
+        }
+        public void AddHouse(string name, int nbOfUnits)
+        {
+            bddInterf.AddHouse(name, nbOfUnits);
+        }
+        public void DeleteHouse(int id)
+        {
+            bddInterf.DeleteHouse(id);
+        }
 
         //public override void AddHouse(int id, string name, int nOfU)
         //{
