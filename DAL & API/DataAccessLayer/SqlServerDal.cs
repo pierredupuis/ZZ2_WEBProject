@@ -174,7 +174,7 @@ namespace DataAccessLayer
 
         public void AddWhiteWalker(WhiteWalkerDTO ww)
         {
-            string sql = "INSERT INTO WhiteWalkers(Name, NumberOfUnits) Values(@name, @nbOfUnits)";
+            string sql = "INSERT INTO WhiteWalkers(NumberOfUnits) Values(@nbOfUnits)";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -190,7 +190,7 @@ namespace DataAccessLayer
 
         public void EditWhiteWalker(WhiteWalkerDTO ww)
         {
-            string sql = "UPDATE WhiteWalkers SET Name = @name, NumberOfUnits = @nbOfUnits WHERE WhiteWalkerId = @id";
+            string sql = "UPDATE WhiteWalkers SET NumberOfUnits = @nbOfUnits WHERE WhiteWalkerId = @id";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();

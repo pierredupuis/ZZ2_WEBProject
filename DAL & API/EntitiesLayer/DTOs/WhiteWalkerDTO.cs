@@ -11,6 +11,11 @@ namespace EntitiesLayer.DTOs
         public int Id { get; set; }
         public int NumberOfUnits { get; set; }
 
+        public WhiteWalkerDTO()
+        {
+
+        }
+
         public WhiteWalkerDTO(int p_id, int p_numberOfUnits = 0)
         {
             Id = p_id;

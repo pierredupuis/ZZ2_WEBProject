@@ -32,8 +32,8 @@ namespace ApiGOT.Controllers
             else
                 return Ok(ww);
         }
-
-        public IHttpActionResult PostWhiteWalker([FromBody] WhiteWalkerDTO ww)
+        
+        public IHttpActionResult PostWhiteWalker(WhiteWalkerDTO ww)
         {
             GameManager.Instance.AddWhiteWalker(ww);
             return Ok();

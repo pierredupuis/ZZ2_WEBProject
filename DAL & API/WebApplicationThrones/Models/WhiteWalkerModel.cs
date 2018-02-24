@@ -8,7 +8,7 @@ namespace WebApplicationThrones.Models
 {
     public class WhiteWalkerModel
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Number of Units")]
         public int NumberOfUnits { get; set; }
