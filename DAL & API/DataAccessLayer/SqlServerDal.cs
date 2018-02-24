@@ -286,19 +286,19 @@ namespace DataAccessLayer
 
         public void AddCharacter(CharacterDTO c)
         {
-            string sql = "INSERT INTO Character(Bravoury, Crazyness, LastName, FirstName, Pv, Pf, HouseId) Values(@Bravoury, @Crazyness, @LastName, @FirstName, @Pv, @Pf, @HouseId)";
+            string sql = "INSERT INTO Characters(Bravoury, Crazyness, LastName, FirstName, Pv, Pf, HouseId) Values(@Bravoury, @Crazyness, @LastName, @FirstName, @Pv, @Pf, @HouseId)";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@Bravoury", SqlDbType.VarChar).Value = c.Bravoury;
+                    sqlCmd.Parameters.Add("@Bravoury", SqlDbType.Int).Value = c.Bravoury;
                     sqlCmd.Parameters.Add("@Crazyness", SqlDbType.Int).Value = c.Crazyness;
                     sqlCmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = c.LastName;
-                    sqlCmd.Parameters.Add("@FirstName", SqlDbType.Int).Value = c.FirstName;
-                    sqlCmd.Parameters.Add("@Pv", SqlDbType.VarChar).Value = c.Pv;
+                    sqlCmd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = c.FirstName;
+                    sqlCmd.Parameters.Add("@Pv", SqlDbType.Int).Value = c.Pv;
                     sqlCmd.Parameters.Add("@Pf", SqlDbType.Int).Value = c.Pf;
-                    sqlCmd.Parameters.Add("@HouseId", SqlDbType.VarChar).Value = c.HouseId;
+                    sqlCmd.Parameters.Add("@HouseId", SqlDbType.Int).Value = c.HouseId;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -400,7 +400,7 @@ namespace DataAccessLayer
 
         public void AddFight(FightDTO f)
         {
-            string sql = "INSERT INTO Fight(ChallengingHouseId, ChallengedHouseId, WinningHouseId) Values(@ChallengingHouseId, @ChallengedHouseId, @WinningHouseId)";
+            string sql = "INSERT INTO Fights(ChallengingHouseId, ChallengedHouseId, WinningHouseId) Values(@ChallengingHouseId, @ChallengedHouseId, @WinningHouseId)";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();

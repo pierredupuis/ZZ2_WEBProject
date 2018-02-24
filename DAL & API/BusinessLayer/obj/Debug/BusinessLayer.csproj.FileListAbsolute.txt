@@ -17,13 +17,3 @@ C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\bin\Debug
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\bin\Debug\BusinessLayer.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\bin\Debug\BusinessLayer.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\bin\Debug\DataAccessLayer_2.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\bin\Debug\EntitiesLayer.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\bin\Debug\DataAccessLayer_2.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\bin\Debug\EntitiesLayer.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\BusinessLayer\obj\Debug\BusinessLayer.pdb
