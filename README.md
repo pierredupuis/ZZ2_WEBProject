@@ -29,6 +29,7 @@ Je sais pas si ça correspond exactement, mais j'ai listé les fonctions à fair
   * [x] GetAll (ne prends pas encore en charge housers)
   * [x] GetByID(id)
   * [x] Post(House)
+  * [x] Edit(House)
   * [x] Delete(id) (devra peut être supprimer aussi les housers ? )
 * Territory
   * [ ] GetAll

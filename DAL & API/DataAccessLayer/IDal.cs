@@ -11,6 +11,7 @@ namespace DataAccessLayer
         List<House> GetHouses();
         House GetHouseById(int p_id);
         void AddHouse(string name, int nbOfUnits);
+        void EditHouse(int id, string name, int nbOfUnits);
         void DeleteHouse(int id);
 
 

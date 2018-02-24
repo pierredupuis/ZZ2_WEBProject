@@ -36,6 +36,10 @@ namespace BusinessLayer
         {
             DalManager.Instance.AddHouse(name, nbOfUnits);
         }
+        public void EditHouse(int id, string name, int nbOfUnits)
+        {
+            DalManager.Instance.EditHouse(id, name, nbOfUnits);
+        }
         public void DeleteHouse(int id)
         {
             DalManager.Instance.DeleteHouse(id);

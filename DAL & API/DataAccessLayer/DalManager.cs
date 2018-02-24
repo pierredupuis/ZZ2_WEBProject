@@ -52,6 +52,10 @@ namespace DataAccessLayer
         {
             bddInterf.AddHouse(name, nbOfUnits);
         }
+        public void EditHouse(int id, string name, int nbOfUnits)
+        {
+            bddInterf.EditHouse(id, name, nbOfUnits);
+        }
         public void DeleteHouse(int id)
         {
             bddInterf.DeleteHouse(id);

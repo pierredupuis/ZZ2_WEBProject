@@ -42,6 +42,12 @@ namespace ApiGOT.Controllers
             return Ok();
         }
 
+        public IHttpActionResult PutHouse([FromBody] HouseDTO house)
+        {
+            GameManager.Instance.EditHouse(house.Id, house.Name, house.NumberOfUnits);
+            return Ok();
+        }
+
         public IHttpActionResult DeleteHouse(int id)
         {
             GameManager.Instance.DeleteHouse(id);

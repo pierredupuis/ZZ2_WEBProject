@@ -85,6 +85,24 @@ namespace DataAccessLayer
                 sqlCon.Close();
             };
         }
+
+        public void EditHouse(int id, string name, int nbOfUnits)
+        {
+            string sql = "UPDATE Houses SET Name = @name, NumberOfUnits = @nbOfUnits WHERE HouseId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                    sqlCmd.Parameters.Add("@nbOfUnits", SqlDbType.Int).Value = nbOfUnits;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
         public void DeleteHouse(int id)
         {
             string sql = "DELETE FROM Houses WHERE HouseId = @id";
