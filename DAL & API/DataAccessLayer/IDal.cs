@@ -15,7 +15,7 @@ namespace DataAccessLayer
         Territory GetTerritoryById(int t);
         List<Character> GetCharacters();
         Character GetCharacterById(int c);*/
-        void AddHouse(int id, string name, int nOfU);
+        //void AddHouse(int id, string name, int nOfU);
         /*void AddCharacter(Character c);
         void AddTerritory(Territory t);
         void AddFight(Fight f);

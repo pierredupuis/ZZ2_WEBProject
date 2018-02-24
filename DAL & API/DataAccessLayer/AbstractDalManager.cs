@@ -5,7 +5,7 @@ using EntitiesLayer;
 
 namespace DataAccessLayer
 {
-    public abstract class AbstractDalManager : IDal
+    public abstract class AbstractDalManager
     {
         abstract public List<House> GetHouses();
         /*abstract public House GetHouseById(int h);
@@ -15,7 +15,7 @@ namespace DataAccessLayer
         abstract public Territory GetTerritoryById(int t);
         abstract public List<Character> GetCharacters();
         abstract public Character GetCharacterById(int c);*/
-        abstract public void AddHouse(int id, string name, int nOfU);
+        //abstract public void AddHouse(int id, string name, int nOfU);
         /*abstract public void AddCharacter(Character c);
         abstract public void AddTerritory(Territory t);
         abstract public void AddFight(Fight f);
@@ -27,7 +27,5 @@ namespace DataAccessLayer
         abstract public void UpdateCharacter(Character c);
         abstract public void UpdateTerritory(Territory t);
         abstract public void UpdateFight(Fight f);*/
-
-
     }
 }

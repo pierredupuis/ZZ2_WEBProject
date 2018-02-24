@@ -7,16 +7,17 @@ using EntitiesLayer;
 
 namespace DataAccessLayer
 {
-    public class DalManager : AbstractDalManager
+    public class DalManager
     {
         private static readonly Lazy<DalManager> lazy = new Lazy<DalManager>(() => new DalManager());
-        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
-        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
-        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\andumont7\\Source\\Repos\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
-        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        private IDal bddInterf;
 
         public static DalManager Instance { get { return lazy.Value; } }
-        DalManager() {}
+        DalManager()
+        {
+            // Pour changer l'implémentation il suffit de modifier cette ligne
+            bddInterf = new SqlServerDal();
+        }
             
 
         /*public List<Fight> GetFights()
@@ -39,52 +40,36 @@ namespace DataAccessLayer
             return fights;
         }
         */
-        public override List<House> GetHouses()
+        public List<House> GetHouses()
         {
-            List<House> houses = new List<House>();
-            string sql = "SELECT * FROM Houses";
-            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
-            {
-                sqlCon.Open();
-                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
-                {
-                    SqlDataReader rdr = sqlCmd.ExecuteReader();
-
-                    rdr.Read();
-                    int id = rdr.GetInt32(0);
-                    string name = rdr.GetString(1);
-                    int nOfU = rdr.GetInt32(2);
-                    houses.Add(new House(id, name, nOfU));
-                };
-            };
-            return houses;
+            return bddInterf.GetHouses();
         }
         /*public override House GetHouseById(int h)
         {
             return new House();
         }*/
 
-        public override void AddHouse(int id, string name, int nOfU)
-        {
-            using (SqlConnection con = new SqlConnection(_connectionString))
-            {
-                con.Open();
-                try
-                {
-                    using (SqlCommand command = new SqlCommand(
-                        "INSERT INTO Houses VALUES(@Id, @Name, @NOfU)", con))
-                    {
-                        command.Parameters.Add(new SqlParameter("Id", id));
-                        command.Parameters.Add(new SqlParameter("Name", name));
-                        command.Parameters.Add(new SqlParameter("NOfU", nOfU));
-                        command.ExecuteNonQuery();
-                    }
-                }
-                catch
-                {
-                    Console.WriteLine("Count not insert.");
-                }
-            }
-        }
+        //public override void AddHouse(int id, string name, int nOfU)
+        //{
+        //    using (SqlConnection con = new SqlConnection(_connectionString))
+        //    {
+        //        con.Open();
+        //        try
+        //        {
+        //            using (SqlCommand command = new SqlCommand(
+        //                "INSERT INTO Houses VALUES(@Id, @Name, @NOfU)", con))
+        //            {
+        //                command.Parameters.Add(new SqlParameter("Id", id));
+        //                command.Parameters.Add(new SqlParameter("Name", name));
+        //                command.Parameters.Add(new SqlParameter("NOfU", nOfU));
+        //                command.ExecuteNonQuery();
+        //            }
+        //        }
+        //        catch
+        //        {
+        //            Console.WriteLine("Count not insert.");
+        //        }
+        //    }
+        //}
     }
 }
