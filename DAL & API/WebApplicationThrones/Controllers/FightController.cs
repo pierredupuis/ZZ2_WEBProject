@@ -32,6 +32,19 @@ namespace WebApplicationThrones.Controllers
                 {
                     string temp = await response.Content.ReadAsStringAsync();
                     Fights = JsonConvert.DeserializeObject<List<FightModel>>(temp);
+
+                    foreach (FightModel fm in Fights)
+                    {
+                        fm.Army1_obj = await HouseController._GetHouse(fm.Army1);
+                        if (fm.Army2 > 0)
+                        {
+                            fm.Army2_obj = await HouseController._GetHouse(fm.Army2);
+                        }
+                        else
+                        {
+                            fm.Army2_obj = await WhiteWalkerController._GetWhiteWalker(fm.Army2);
+                        }
+                    }
                 }
             }
             return Fights;
@@ -51,6 +64,16 @@ namespace WebApplicationThrones.Controllers
                 {
                     string temp = await response.Content.ReadAsStringAsync();
                     Fight = JsonConvert.DeserializeObject<FightModel>(temp);
+
+                    Fight.Army1_obj = await HouseController._GetHouse(Fight.Army1);
+                    if (Fight.Army2 > 0)
+                    {
+                        Fight.Army2_obj = await HouseController._GetHouse(Fight.Army2);
+                    }
+                    else
+                    {
+                        Fight.Army2_obj = await WhiteWalkerController._GetWhiteWalker(Fight.Army2);
+                    }
                 }
             }
             return Fight;
@@ -75,16 +98,31 @@ namespace WebApplicationThrones.Controllers
         // GET: Fight/Create
         public async Task<ActionResult> Create()
         {
+
             List<HouseModel> HouseList = await HouseController._GetHouses();
-            if (HouseList.Count > 0)
+            List<WhiteWalkerModel> WhiteWalkerList = await WhiteWalkerController._GetWhiteWalkers();
+
+            if (HouseList.Count + WhiteWalkerList.Count > 0)
             {
-                List<SelectListItem> list = new List<SelectListItem>();
-                
+
+                SelectListGroup HGroup = new SelectListGroup() { Name = "Houses" };
+                SelectListGroup WWGroup = new SelectListGroup() { Name = "White Walkers" };
+                List<SelectListItem> ArmyItemList = new List<SelectListItem>();
+                List<SelectListItem> HouseItemList = new List<SelectListItem>();
+
                 foreach (HouseModel hm in HouseList)
                 {
-                    list.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
+                    ArmyItemList.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString(), Group = HGroup });
+                    HouseItemList.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
                 }
-                ViewBag.HouseList = list;
+
+                foreach (WhiteWalkerModel wwm in WhiteWalkerList)
+                {
+                    ArmyItemList.Add(new SelectListItem() { Text = wwm.NumberOfUnits.ToString(), Value = wwm.Id.ToString(), Group = WWGroup });
+                }
+
+                ViewBag.Army1 = HouseItemList;
+                ViewBag.Army2 = ArmyItemList;
 
                 return View();
             }

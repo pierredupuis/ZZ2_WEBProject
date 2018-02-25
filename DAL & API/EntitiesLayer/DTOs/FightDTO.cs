@@ -19,7 +19,7 @@ namespace EntitiesLayer.DTOs
             Id = -1;
         }
 
-        public FightDTO(int army1, int army2, int winningHouse, int id)
+        public FightDTO(int id, int army1, int army2, int winningHouse)
         {
             Army1 = army1;
             Army2 = army2;

@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArmyController.cs" />
     <Compile Include="Controllers\FightController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CharacterController.cs" />
@@ -211,8 +212,10 @@
     </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Models\FightModel.cs" />
+    <Compile Include="Models\FightViewModel.cs" />
     <Compile Include="Models\HouseModel.cs" />
     <Compile Include="Models\HousesModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />

@@ -11,6 +11,40 @@
     <h4>FightModel</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Army1_obj.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Army1_obj.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Army1_obj.NumberOfUnits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Army1_obj.NumberOfUnits)
+        </dd>
+
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Army2_obj.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Army2_obj.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Army2_obj.NumberOfUnits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Army2_obj.NumberOfUnits)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

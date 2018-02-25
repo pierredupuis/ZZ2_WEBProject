@@ -16,22 +16,22 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
         <div class="form-group">
-            @Html.LabelFor(model => model.HouseChallenged, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Army1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("HouseChallenged", new SelectList(ViewBag.HouseList, "Value", "Text"))
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HouseChallenger, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("HouseChallenger", new SelectList(ViewBag.HouseList, "Value", "Text"))
+                @Html.DropDownList("Army1")
             </div>
         </div>
         
         <div class="form-group">
+            @Html.LabelFor(model => model.Army2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Army2")
+                
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Fight !" class="btn btn-default" />
             </div>
         </div>
 
