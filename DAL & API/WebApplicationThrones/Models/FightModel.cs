@@ -11,14 +11,14 @@ namespace WebApplicationThrones.Models
     {
         public int ID { get; set; }
 
-        [Display(Name = "Attacking House")]
-        public HouseModel HouseChallenger { get; set; }
+        [Display(Name = "Attacking Army")]
+        public int Army1 { get; set; }
 		
-        [Display(Name = "Defending House")]
-        public HouseModel HouseChallenged { get; set; }
+        [Display(Name = "Defending Army")]
+        public int Army2 { get; set; }
 		
-        [Display(Name = "Victorious House")]
-        public HouseModel WinningHouse { get; set; }
+        [Display(Name = "Victorious Army")]
+        public int WinningArmy { get; set; }
 
         public FightModel()
         {

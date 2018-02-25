@@ -15,11 +15,3 @@ C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\bin\Deb
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.dll
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\bin\Debug\DataAccessLayer_2.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\bin\Debug\DataAccessLayer_2.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\bin\Debug\EntitiesLayer.pdb
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\DataAccessLayer\obj\Debug\DataAccessLayer_2.pdb

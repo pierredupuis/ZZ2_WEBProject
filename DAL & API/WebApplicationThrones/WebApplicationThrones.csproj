@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Models\FightModel.cs" />
     <Compile Include="Models\HouseModel.cs" />

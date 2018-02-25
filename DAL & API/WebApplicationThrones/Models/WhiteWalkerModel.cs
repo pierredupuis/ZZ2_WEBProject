@@ -6,12 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplicationThrones.Models
 {
-    public class WhiteWalkerModel
+    public class WhiteWalkerModel : ArmyModel
     {
         public int Id { get; set; }
-
-        [Display(Name = "Number of Units")]
-        public int NumberOfUnits { get; set; }
 
         public WhiteWalkerModel()
         {

@@ -75,16 +75,29 @@ namespace WebApplicationThrones.Controllers
         // GET: Fight/Create
         public async Task<ActionResult> Create()
         {
+
             List<HouseModel> HouseList = await HouseController._GetHouses();
-            if (HouseList.Count > 0)
+            List<WhiteWalkerModel> WhiteWalkerList = await WhiteWalkerController._GetWhiteWalkers();
+
+            if (HouseList.Count + WhiteWalkerList.Count > 0)
             {
-                List<SelectListItem> list = new List<SelectListItem>();
-                
+
+                SelectListGroup HGroup = new SelectListGroup() { Name = "Houses" };
+                SelectListGroup WWGroup = new SelectListGroup() { Name = "White Walkers" };
+                List<SelectListItem> AllList = new List<SelectListItem>();
+
                 foreach (HouseModel hm in HouseList)
                 {
-                    list.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
+                    AllList.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString(), Group = HGroup });
                 }
-                ViewBag.HouseList = list;
+
+                foreach (WhiteWalkerModel wwm in WhiteWalkerList)
+                {
+                    AllList.Add(new SelectListItem() { Text = wwm.NumberOfUnits.ToString(), Value = wwm.Id.ToString(), Group = WWGroup });
+                }
+
+                ViewBag.HouseList = HouseList;
+                ViewBag.Elements = AllList;
 
                 return View();
             }

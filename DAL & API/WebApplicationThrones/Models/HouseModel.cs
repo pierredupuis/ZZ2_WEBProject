@@ -6,15 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplicationThrones.Models
 {
-    public class HouseModel
+    public class HouseModel : ArmyModel
     {
         public int ID { get; set; }
 
         [Display(Name = "Name")]
         public String Name { get; set; }
-
-        [Display(Name = "Number of Units")]
-        public int NumberOfUnits { get; set; }
 		
 		[Display(Name = "Housers")]
         List<CharacterModel> Housers { get; set; }
