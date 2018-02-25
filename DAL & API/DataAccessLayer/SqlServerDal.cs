@@ -13,9 +13,9 @@ namespace DataAccessLayer
     class SqlServerDal : IDal
     {
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
-        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\andumont7\\Source\\Repos\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
-        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
 
         public List<HouseDTO> GetHouses()
         {
@@ -438,6 +438,204 @@ namespace DataAccessLayer
         public void DeleteFight(int id)
         {
             string sql = "DELETE FROM Fights WHERE FightId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+
+        public List<TerritoryDTO> GetTerritorys()
+        {
+            List<TerritoryDTO> Territories = new List<TerritoryDTO>();
+            string sql = "SELECT * FROM Territories";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        string type = rdr.GetString(1);
+                        int owner = rdr.GetInt32(2);
+                        Territories.Add(new TerritoryDTO(id, type, owner));
+                    }
+                };
+                sqlCon.Close();
+            };
+            return Territories;
+        }
+        public TerritoryDTO GetTerritoryById(int p_id)
+        {
+            TerritoryDTO Territory;
+
+            string sql = "SELECT * FROM Territorys WHERE TerritoryId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = p_id;
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        string type = rdr.GetString(1);
+                        int owner = rdr.GetInt32(2);
+                        Territory = new TerritoryDTO(id, type, owner);
+                    }
+                    else
+                    {
+                        Territory = new TerritoryDTO();
+                    }
+                };
+                sqlCon.Close();
+            };
+            return Territory;
+        }
+
+        public void AddTerritory(TerritoryDTO Territory)
+        {
+            string sql = "INSERT INTO Territories(TerritoryType, OwnerId) Values(@TerritoryType, @OwnerId)";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@TerritoryType", SqlDbType.VarChar).Value = Territory.Type;
+                    sqlCmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = Territory.Owner;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+
+        public void EditTerritory(TerritoryDTO Territory)
+        {
+            string sql = "UPDATE Territorys SET TerritoryType = @TerritoryType, OwnerId = @OwnerId WHERE TerritoryId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@TerritoryType", SqlDbType.VarChar).Value = Territory.Type;
+                    sqlCmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = Territory.Owner;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+        public void DeleteTerritory(int id)
+        {
+            string sql = "DELETE FROM Territorys WHERE TerritoryId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+
+        public List<WarDTO> GetWars()
+        {
+            List<WarDTO> Wars = new List<WarDTO>();
+            string sql = "SELECT * FROM Wars";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        Wars.Add(new WarDTO(id));
+                    }
+                };
+                sqlCon.Close();
+            };
+            return Wars;
+        }
+        public WarDTO GetWarById(int p_id)
+        {
+            WarDTO War;
+
+            string sql = "SELECT * FROM Wars WHERE WarId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = p_id;
+                    SqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        int id = rdr.GetInt32(0);
+                        War = new WarDTO(id);
+                    }
+                    else
+                    {
+                        War = new WarDTO();
+                    }
+                };
+                sqlCon.Close();
+            };
+            return War;
+        }
+
+        public void AddWar(WarDTO War)
+        {
+            string sql = "INSERT INTO Wars";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }
+
+        /* Pour le moment inutile vu que le guerre ne contient qu'un id */
+        /*public void EditWar(WarDTO War)
+        {
+            string sql = "UPDATE Wars SET WarType = @WarType, OwnerId = @OwnerId WHERE WarId = @id";
+            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    sqlCmd.Parameters.Add("@WarType", SqlDbType.VarChar).Value = War.Type;
+                    sqlCmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = War.Owner;
+
+                    sqlCmd.ExecuteNonQuery();
+                };
+                sqlCon.Close();
+            };
+        }*/
+        public void DeleteWar(int id)
+        {
+            string sql = "DELETE FROM Wars WHERE WarId = @id";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();

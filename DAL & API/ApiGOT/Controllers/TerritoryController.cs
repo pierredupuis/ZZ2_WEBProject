@@ -12,18 +12,43 @@ namespace ApiGOT.Controllers
 {
     public class TerritoryController : ApiController
     {
-        /*public List<TerritoryDTO> getAllTerritories()
+        public IHttpActionResult GetAllTerritorys()
         {
-            List<TerritoryDTO> list = new List<TerritoryDTO>();
+            List<TerritoryDTO> Territorys = new List<TerritoryDTO>();
 
-            DalManager m = DalManager.Instance;
-
-            foreach (var terr in m.getAllTerritories())
+            foreach (var Territory in GameManager.Instance.GetTerritorys())
             {
-                list.Add(new TerritoryDTO(terr));
+                Territorys.Add(Territory);
             }
 
-            return list;
-        }*/
+            return Ok(Territorys);
+        }
+
+        public IHttpActionResult GetTerritoryById(int id)
+        {
+            TerritoryDTO Territory = GameManager.Instance.GetTerritoryById(id);
+            if (Territory.Id == -1)
+                return NotFound();
+            else
+                return Ok(Territory);
+        }
+
+        public IHttpActionResult PostTerritory([FromBody] TerritoryDTO Territory)
+        {
+            GameManager.Instance.AddTerritory(Territory);
+            return Ok();
+        }
+
+        public IHttpActionResult PutTerritory([FromBody] TerritoryDTO Territory)
+        {
+            GameManager.Instance.EditTerritory(Territory);
+            return Ok();
+        }
+
+        public IHttpActionResult DeleteTerritory(int id)
+        {
+            GameManager.Instance.DeleteTerritory(id);
+            return Ok();
+        }
     }
 }

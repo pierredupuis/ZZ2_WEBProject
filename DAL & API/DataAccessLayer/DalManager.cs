@@ -103,5 +103,47 @@ namespace DataAccessLayer
         {
             bddInterf.DeleteFight(id);
         }
+
+        public List<TerritoryDTO> GetTerritorys()
+        {
+            return bddInterf.GetTerritorys();
+        }
+        public TerritoryDTO GetTerritoryById(int p_id)
+        {
+            return bddInterf.GetTerritoryById(p_id);
+        }
+        public void AddTerritory(TerritoryDTO Territory)
+        {
+            bddInterf.AddTerritory(Territory);
+        }
+        public void EditTerritory(TerritoryDTO Territory)
+        {
+            bddInterf.EditTerritory(Territory);
+        }
+        public void DeleteTerritory(int id)
+        {
+            bddInterf.DeleteTerritory(id);
+        }
+
+        public List<WarDTO> GetWars()
+        {
+            return bddInterf.GetWars();
+        }
+        public WarDTO GetWarById(int p_id)
+        {
+            return bddInterf.GetWarById(p_id);
+        }
+        public void AddWar(WarDTO War)
+        {
+            bddInterf.AddWar(War);
+        }
+        /*public void EditWar(WarDTO War)
+        {
+            bddInterf.EditWar(War);
+        }*/
+        public void DeleteWar(int id)
+        {
+            bddInterf.DeleteWar(id);
+        }
     }
 }

@@ -109,6 +109,48 @@ namespace BusinessLayer
             DalManager.Instance.DeleteFight(id);
         }
 
+        public List<TerritoryDTO> GetTerritorys()
+        {
+            return DalManager.Instance.GetTerritorys();
+        }
+        public TerritoryDTO GetTerritoryById(int p_id)
+        {
+            return DalManager.Instance.GetTerritoryById(p_id);
+        }
+        public void AddTerritory(TerritoryDTO Territory)
+        {
+            DalManager.Instance.AddTerritory(Territory);
+        }
+        public void EditTerritory(TerritoryDTO Territory)
+        {
+            DalManager.Instance.EditTerritory(Territory);
+        }
+        public void DeleteTerritory(int id)
+        {
+            DalManager.Instance.DeleteTerritory(id);
+        }
+
+        public List<WarDTO> GetWars()
+        {
+            return DalManager.Instance.GetWars();
+        }
+        public WarDTO GetWarById(int p_id)
+        {
+            return DalManager.Instance.GetWarById(p_id);
+        }
+        public void AddWar(WarDTO War)
+        {
+            DalManager.Instance.AddWar(War);
+        }
+        /*public void EditWar(WarDTO War)
+        {
+            DalManager.Instance.EditWar(War);
+        }*/
+        public void DeleteWar(int id)
+        {
+            DalManager.Instance.DeleteWar(id);
+        }
+
         public Boolean StartFight(FightDTO f)
         {
             Random rand = new Random();
