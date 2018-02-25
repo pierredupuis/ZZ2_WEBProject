@@ -1,18 +1,9 @@
 # ignore packages
 **\packages
-.vs/*
+.vs
 .\DAL & API\.vs\*
 .\DAL & API\.vs\game_of_thrones\v15\Server\sqlite3
 .\DAL & API\*\obj
 DAL & API/packages/
-DAL & API/EntitiesLayer/bin/
-DAL & API/ApiGOT/bin/
-DAL & API/BusinessLayer/bin/
-DAL & API/DataAccessLayer/bin/
-DAL & API\EntitiesLayer\obj\
-DAL & API/ApiGOT/obj/
-DAL & API/BusinessLayer/obj/
-DAL & API/DataAccessLayer/obj/
-DAL & API/WebApplicationThrones/obj/
-DAL & API/temp_db_log.ldf
-DAL & API/temp_db.mdf
+**\obj
+**\bin
