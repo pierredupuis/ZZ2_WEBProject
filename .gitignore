@@ -5,3 +5,5 @@
 .\DAL & API\.vs\game_of_thrones\v15\Server\sqlite3
 .\DAL & API\*\obj
 DAL & API/packages/
+**\obj
+**\bin
