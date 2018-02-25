@@ -64,6 +64,16 @@ namespace WebApplicationThrones.Controllers
                 {
                     string temp = await response.Content.ReadAsStringAsync();
                     Fight = JsonConvert.DeserializeObject<FightModel>(temp);
+
+                    Fight.Army1_obj = await HouseController._GetHouse(Fight.Army1);
+                    if (Fight.Army2 > 0)
+                    {
+                        Fight.Army2_obj = await HouseController._GetHouse(Fight.Army2);
+                    }
+                    else
+                    {
+                        Fight.Army2_obj = await WhiteWalkerController._GetWhiteWalker(Fight.Army2);
+                    }
                 }
             }
             return Fight;
