@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using DataAccessLayer;
 using EntitiesLayer;
-using ApiGOT.Models;
+using EntitiesLayer.DTOs;
 
 namespace BusinessLayer
 {
@@ -17,7 +17,7 @@ namespace BusinessLayer
         public static GameManager Instance { get { return lazy.Value; } }
         GameManager()
         {
-            
+
         }
 
 
@@ -44,6 +44,27 @@ namespace BusinessLayer
         public void DeleteHouse(int id)
         {
             DalManager.Instance.DeleteHouse(id);
+        }
+
+        public List<WhiteWalkerDTO> GetWhiteWalkers()
+        {
+            return DalManager.Instance.GetWhiteWalkers();
+        }
+        public WhiteWalkerDTO GetWhiteWalkerById(int p_id)
+        {
+            return DalManager.Instance.GetWhiteWalkerById(p_id);
+        }
+        public void AddWhiteWalker(WhiteWalkerDTO ww)
+        {
+            DalManager.Instance.AddWhiteWalker(ww);
+        }
+        public void EditWhiteWalker(WhiteWalkerDTO ww)
+        {
+            DalManager.Instance.EditWhiteWalker(ww);
+        }
+        public void DeleteWhiteWalker(int id)
+        {
+            DalManager.Instance.DeleteWhiteWalker(id);
         }
 
         public List<CharacterDTO> GetCharacters()
@@ -87,5 +108,55 @@ namespace BusinessLayer
         {
             DalManager.Instance.DeleteFight(id);
         }
+
+        public Boolean StartFight(FightDTO f)
+        {
+            Random rand = new Random();
+            House hAtt = new House(this.GetHouseById(f.Army1));
+            House hDef = new House(this.GetHouseById(f.Army2));
+            int nbAtt = hAtt.NumberOfUnits;
+            int nbDef = hAtt.NumberOfUnits;
+            int res;
+            Boolean battle = true;
+
+            while (battle) // Fight
+            {
+                for (int i = 0; i < nbAtt && i < nbDef; i++)
+                {
+                    res = rand.Next(0, 2) * 2 - 1; // res = 1 or -1 (0or1 * 2 = 0or2 - 1 = -1or1)
+                    nbAtt += res;
+                    nbDef += res;
+                }
+
+                if ((nbAtt <= 0) || (nbAtt < hAtt.NumberOfUnits / 5 && nbAtt * 1.5 < nbDef)) // House 1 loses
+                {
+                    hAtt.WinBattle(hAtt.NumberOfUnits - nbAtt, hDef.NumberOfUnits - nbDef);
+                    hDef.LoseBattle(hDef.NumberOfUnits - nbDef, hAtt.NumberOfUnits - nbAtt);
+                    battle = false;
+                }
+                else if ((nbDef <= 0) || (nbDef < hDef.NumberOfUnits / 5 && nbDef * 1.5 < nbAtt)) // House 2 loses
+                {
+                    hDef.WinBattle(hDef.NumberOfUnits - nbDef, hAtt.NumberOfUnits - nbAtt);
+                    hAtt.LoseBattle(hAtt.NumberOfUnits - nbAtt, hDef.NumberOfUnits - nbDef);
+                    battle = false;
+                }
+            }
+            return false;
+        }
+        private void EndBattle(HouseDTO Winner, HouseDTO Looser, int wUnits, int lUnits)
+        {
+            /*if (Winner.WhiteWalker)
+            {
+                Winner.NumberOfUnits += Looser.NumberOfUnits - lUnits; // Raise the Dead ! But no reputation bonus. No one volunteers for joining the army of the dead...
+            }
+            else
+            {
+                Winner.NumberOfUnits = wUnits + 10; // Reputation Bonus. Great victories means more people willing to enroll !
+            }
+
+            Looser.NumberOfUnits = lUnits - 10; // Reputation Malus. Dude, you're losing, it's sad, but nobody wants to be with you at the end.*/
+
+        }
+
     }
 }

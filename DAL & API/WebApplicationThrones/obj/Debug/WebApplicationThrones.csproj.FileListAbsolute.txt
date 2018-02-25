@@ -212,6 +212,8 @@ C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\WebApplicationThrones\b
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.csprojResolveAssemblyReference.cache
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.dll
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.pdb
+C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.csprojResolveAssemblyReference.cache
+C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.csproj.CoreCompileInputs.cache
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\ApplicationInsights.config
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\roslyn\csc.exe
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -310,7 +312,5 @@ C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\bin\fr\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.csprojResolveAssemblyReference.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.csproj.CoreCompileInputs.cache
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\WebApplicationThrones\obj\Debug\WebApplicationThrones.pdb

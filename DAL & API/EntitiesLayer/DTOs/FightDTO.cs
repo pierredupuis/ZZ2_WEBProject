@@ -5,13 +5,13 @@ using System.Web;
 
 using EntitiesLayer;
 
-namespace ApiGOT.Models
+namespace EntitiesLayer.DTOs
 {
     public class FightDTO
     {
-        public int HouseChallenging { get; set; }
-        public int HouseChallenged { get; set; }
-        public int WinningHouse { get; set; }
+        public int Army1 { get; set; }
+        public int Army2 { get; set; }
+        public int WinningArmy { get; set; }
         public int Id { get; set; }
 
         public FightDTO()
@@ -19,12 +19,18 @@ namespace ApiGOT.Models
             Id = -1;
         }
 
-        public FightDTO(int houseChallenging, int houseChallenged, int winningHouse, int id)
+        public FightDTO(int army1, int army2, int winningHouse, int id)
         {
-            HouseChallenging = houseChallenging;
-            HouseChallenged = houseChallenged;
-            WinningHouse = winningHouse;
+            Army1 = army1;
+            Army2 = army2;
+            WinningArmy = winningHouse;
             Id = id;
+        }
+        public FightDTO(Fight f)
+        {
+            Army1 = f.Army1.Id;
+            Army2 = f.Army2.Id;
+            WinningArmy = f.WinningArmy.Id;
         }
     }
 }

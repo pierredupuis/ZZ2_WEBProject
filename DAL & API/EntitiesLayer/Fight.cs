@@ -8,58 +8,21 @@ namespace EntitiesLayer
 {
     public class Fight : EntityObject
     {
-        House houseChallenger1;
-        House houseChallenger2;
-        House winningHouse;
+        public Army Army1 { get; set; }
+        public Army Army2 { get; set; }
+        public Army WinningArmy { get; set; }
 
-        
 
-        public Fight(int p_id, House p_houseChallenger1, House p_houseChallenger2, House p_winningHouse)
+
+        public Fight(int p_id, Army p_army1, Army p_army2, Army p_winningArmy)
         {
-            HouseChallenger1 = p_houseChallenger1;
-            HouseChallenger2 = p_houseChallenger2;
-            WinningHouse = p_winningHouse;
+            Army1 = p_army1;
+            Army2 = p_army2;
+            WinningArmy = p_winningArmy;
 
             base.Id = p_id;
         }
 
-        public House HouseChallenger1
-        {
-            get
-            {
-                return houseChallenger1;
-            }
-
-            set
-            {
-                houseChallenger1 = value;
-            }
-        }
-
-        public House HouseChallenger2
-        {
-            get
-            {
-                return houseChallenger2;
-            }
-
-            set
-            {
-                houseChallenger2 = value;
-            }
-        }
-
-        public House WinningHouse
-        {
-            get
-            {
-                return winningHouse;
-            }
-
-            set
-            {
-                winningHouse = value;
-            }
-        }
+       
     }
 }

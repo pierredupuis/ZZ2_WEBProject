@@ -49,6 +49,7 @@ C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\ApiGOT\bin\fr\System.We
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.csprojResolveAssemblyReference.cache
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.dll
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.pdb
+C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.csproj.CoreCompileInputs.cache
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\bin\ApiGOT.dll.config
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\bin\ApiGOT.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\bin\ApiGOT.pdb
@@ -72,6 +73,5 @@ C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\bin\fr\System.Net.H
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\bin\fr\System.Web.Http.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\bin\fr\System.Web.Http.WebHost.resources.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.csprojResolveAssemblyReference.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.csproj.CoreCompileInputs.cache
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.dll
 C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\ApiGOT\obj\Debug\ApiGOT.pdb

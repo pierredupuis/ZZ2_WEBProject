@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-using ApiGOT.Models;
+using EntitiesLayer.DTOs;
 using BusinessLayer;
 
 namespace ApiGOT.Controllers
