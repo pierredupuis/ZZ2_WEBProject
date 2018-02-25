@@ -97,7 +97,7 @@ namespace WebApplicationThrones.Controllers
                 }
 
                 ViewBag.HouseList = HouseList;
-                ViewBag.Elements = AllList;
+                ViewBag.Army2 = AllList;
 
                 return View();
             }
