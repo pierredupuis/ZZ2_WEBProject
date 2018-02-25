@@ -9,10 +9,10 @@ namespace WebApplicationThrones.Models
     public class WhiteWalkerModel : ArmyModel
     {
         public int Id { get; set; }
-
+        
         public WhiteWalkerModel()
         {
-
+            Name = "Dead";
         }
 
         

@@ -9,10 +9,7 @@ namespace WebApplicationThrones.Models
     public class HouseModel : ArmyModel
     {
         public int ID { get; set; }
-
-        [Display(Name = "Name")]
-        public String Name { get; set; }
-		
+        		
 		[Display(Name = "Housers")]
         List<CharacterModel> Housers { get; set; }
 

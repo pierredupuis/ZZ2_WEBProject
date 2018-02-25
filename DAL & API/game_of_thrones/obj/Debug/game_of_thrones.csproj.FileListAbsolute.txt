@@ -9,8 +9,3 @@ C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Deb
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.MainWindow.resources
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.Menu.resources
 C:\Users\andumont7\Source\Repos\ZZ2_WEBProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csproj.GenerateResource.Cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csprojResolveAssemblyReference.cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.MainWindow.resources
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.Menu.resources
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csproj.GenerateResource.Cache
-C:\Users\Jarvis\Repositories\ZZ2_WebProject\DAL & API\game_of_thrones\obj\Debug\game_of_thrones.csproj.CoreCompileInputs.cache

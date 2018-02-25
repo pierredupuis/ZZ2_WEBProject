@@ -10,5 +10,7 @@ namespace WebApplicationThrones.Models
     {
         [Display(Name = "Number of Units")]
         public int NumberOfUnits { get; set; }
+
+        public string Name { get; set; }
     }
 }

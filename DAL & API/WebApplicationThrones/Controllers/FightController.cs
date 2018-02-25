@@ -32,6 +32,19 @@ namespace WebApplicationThrones.Controllers
                 {
                     string temp = await response.Content.ReadAsStringAsync();
                     Fights = JsonConvert.DeserializeObject<List<FightModel>>(temp);
+
+                    foreach (FightModel fm in Fights)
+                    {
+                        fm.Army1_obj = await HouseController._GetHouse(fm.Army1);
+                        if (fm.Army2 > 0)
+                        {
+                            fm.Army2_obj = await HouseController._GetHouse(fm.Army2);
+                        }
+                        else
+                        {
+                            fm.Army2_obj = await WhiteWalkerController._GetWhiteWalker(fm.Army2);
+                        }
+                    }
                 }
             }
             return Fights;
@@ -84,20 +97,22 @@ namespace WebApplicationThrones.Controllers
 
                 SelectListGroup HGroup = new SelectListGroup() { Name = "Houses" };
                 SelectListGroup WWGroup = new SelectListGroup() { Name = "White Walkers" };
-                List<SelectListItem> AllList = new List<SelectListItem>();
+                List<SelectListItem> ArmyItemList = new List<SelectListItem>();
+                List<SelectListItem> HouseItemList = new List<SelectListItem>();
 
                 foreach (HouseModel hm in HouseList)
                 {
-                    AllList.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString(), Group = HGroup });
+                    ArmyItemList.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString(), Group = HGroup });
+                    HouseItemList.Add(new SelectListItem() { Text = hm.Name, Value = hm.ID.ToString() });
                 }
 
                 foreach (WhiteWalkerModel wwm in WhiteWalkerList)
                 {
-                    AllList.Add(new SelectListItem() { Text = wwm.NumberOfUnits.ToString(), Value = wwm.Id.ToString(), Group = WWGroup });
+                    ArmyItemList.Add(new SelectListItem() { Text = wwm.NumberOfUnits.ToString(), Value = wwm.Id.ToString(), Group = WWGroup });
                 }
 
-                ViewBag.HouseList = HouseList;
-                ViewBag.Army2 = AllList;
+                ViewBag.Army1 = HouseItemList;
+                ViewBag.Army2 = ArmyItemList;
 
                 return View();
             }

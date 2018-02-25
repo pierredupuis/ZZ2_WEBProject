@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using EntitiesLayer;
 using EntitiesLayer.DTOs;
+using System.Data.SqlTypes;
 
 namespace DataAccessLayer
 {
@@ -358,8 +359,8 @@ namespace DataAccessLayer
                     {
                         int id = rdr.GetInt32(0);
                         int challenging = rdr.GetInt32(1);
-                        int challenged = rdr.GetInt32(2);
-                        int winning = rdr.GetInt32(3);
+                        int challenged = (rdr.IsDBNull(2) ? rdr.GetInt32(4) : rdr.GetInt32(2)); // Soit un House, soit un WW
+                        int winning = (rdr.IsDBNull(3) ? (rdr.IsDBNull(5) ? 0 : rdr.GetInt32(5)) : rdr.GetInt32(3)); // (HouseId Null ? WWId Null ? 0 SINON return WWId SINON return HouseId
                         fights.Add(new FightDTO(id, challenging, challenged, winning));
                     }
                 };
@@ -384,8 +385,8 @@ namespace DataAccessLayer
                     {
                         int id = rdr.GetInt32(0);
                         int challenging = rdr.GetInt32(1);
-                        int challenged = rdr.GetInt32(2);
-                        int winning = rdr.GetInt32(3);
+                        int challenged = (rdr.IsDBNull(2) ? rdr.GetInt32(4) : rdr.GetInt32(2)); // Soit un House, soit un WW
+                        int winning = (rdr.IsDBNull(3) ? (rdr.IsDBNull(5) ? 0 : rdr.GetInt32(5)) : rdr.GetInt32(3)); // (HouseId Null ? WWId Null ? 0 SINON return WWId SINON return HouseId
                         fight = new FightDTO(id, challenging, challenged, winning);
                     }
                     else
@@ -400,16 +401,21 @@ namespace DataAccessLayer
 
         public void AddFight(FightDTO f)
         {
-            string sql = "INSERT INTO Fights(ChallengingHouseId, ChallengedHouseId, WinningHouseId) Values(@ChallengingHouseId, @ChallengedHouseId, @WinningHouseId)";
+            string field2 = (f.Army2 > 0 ? "ChallengedHouseId" : "ChallengedWWId");
+            string field3 = (f.WinningArmy > 0 ? "WinningHouseId" : "WinningWWId");
+
+            string sql = "INSERT INTO Fights(ChallengingHouseId, " + field2 + ", " + field3 + ") Values(@ChallengingHouseId, @ChallengedHouseId, @WinningHouseId)";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.VarChar).Value = f.Army1;
+                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.Int).Value = f.Army1;
                     sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.Army2;
-                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.VarChar).Value = f.WinningArmy;
-
+                    if (f.WinningArmy != 0) // Gagnant non determiné
+                        sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.Int).Value = f.WinningArmy;
+                    else
+                        sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.Int).Value = SqlInt32.Null;
                     sqlCmd.ExecuteNonQuery();
                 };
                 sqlCon.Close();
@@ -418,16 +424,19 @@ namespace DataAccessLayer
 
         public void EditFight(FightDTO f)
         {
-            string sql = "UPDATE Fights SET ChallengingHouseId = @ChallengingHouseId, ChallengedHouseId = @ChallengedHouseId, WinningHouseId = @WinningHouseId WHERE FightId = @id";
+            string field2 = (f.Army2 > 0 ? "ChallengedHouseId" : "ChallengedWWId");
+            string field3 = (f.WinningArmy > 0 ? "WinningHouseId" : "WinningWWId");
+
+            string sql = "UPDATE Fights SET ChallengingHouseId = @ChallengingHouseId, " + field2 + " = @ChallengedHouseId, " + field3 + " = @WinningHouseId WHERE FightId = @id";
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.VarChar).Value = f.Army1;
+                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.Int).Value = f.Army1;
                     sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.Army2;
-                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.VarChar).Value = f.WinningArmy;
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = f.Id;
+                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.Int).Value = f.WinningArmy;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = f.Id;
 
 
                     sqlCmd.ExecuteNonQuery();
@@ -443,7 +452,7 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
