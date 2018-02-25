@@ -11,8 +11,6 @@ namespace EntitiesLayer
         TerritoryType type;
         House owner;
 
-        static int currId = 0;
-
         public House Owner
         {
             get
@@ -26,13 +24,12 @@ namespace EntitiesLayer
             }
         }
 
-        public Territory(TerritoryType p_type, House p_owner)
+        public Territory(int p_id, TerritoryType p_type, House p_owner)
         {
             owner = p_owner;
             type = p_type;
 
-            Id = currId;
-            currId++;
+            Id = p_id;
         }
     }
 }

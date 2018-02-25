@@ -8,12 +8,9 @@ namespace EntitiesLayer
 {
     public class War : EntityObject
     {
-        static int currId;
-
-        public War()
+        public War(int p_id)
         {
-            Id = currId;
-            currId++;
+            Id = p_id;
         }
     }
 }

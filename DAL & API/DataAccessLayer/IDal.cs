@@ -36,5 +36,19 @@ namespace DataAccessLayer
         void AddFight(FightDTO f);
         void EditFight(FightDTO f);
         void DeleteFight(int id);
+
+        /* Territory */
+        List<TerritoryDTO> GetTerritorys();
+        TerritoryDTO GetTerritoryById(int id);
+        void AddTerritory(TerritoryDTO f);
+        void EditTerritory(TerritoryDTO f);
+        void DeleteTerritory(int id);
+
+        /* Wars */
+        List<WarDTO> GetWars();
+        WarDTO GetWarById(int id);
+        void AddWar(WarDTO f);
+        /*void EditWar(WarDTO f);*/
+        void DeleteWar(int id);
     }
 }

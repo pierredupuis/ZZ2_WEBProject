@@ -34,15 +34,17 @@ Projet web de ZZ2 (F2&amp;F5)
   * [x] Edit(House)
   * [x] Delete(id) (devra peut être supprimer aussi les housers ? )
 * Territory
-  * [ ] GetAll
-  * [ ] GetByID(id)
-  * [ ] Post(Territory)
-  * [ ] Delete(id)
+  * [x] GetAll
+  * [x] GetByID(id)
+  * [x] Post(Territory)
+  * [x] Edit(Territory)
+  * [x] Delete(id)
 * War
-  * [ ] GetAll
-  * [ ] GetByID(id)
-  * [ ] Post(War)
-  * [ ] Delete(id)
+  * [x] GetAll
+  * [x] GetByID(id)
+  * [x] Post(War)
+  * [x] Edit(War)
+  * [x] Delete(id)
   
 # Web App
 Seuls les Index (Liste tous les éléments) ont été testés. Attente de l'API pour tester le reste.

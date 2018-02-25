@@ -8,17 +8,19 @@ namespace EntitiesLayer.DTOs
     public class TerritoryDTO
     {
         public int Id { get; set; }
+        public string Type { get; set; }
         public int Owner { get; set; }
 
 
         public TerritoryDTO()
         {
-
+            Id = -1;
         }
-        /*public TerritoryDTO(Territory territory)
+
+        public TerritoryDTO(int id, string type, int owner)
         {
-            Id = territory.Id;
-            Owner = territory.Owner;
-        }*/
+            Id = id;
+            Owner = owner;
+        }
     }
 }
