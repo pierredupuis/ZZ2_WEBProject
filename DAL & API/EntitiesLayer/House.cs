@@ -39,5 +39,9 @@ namespace EntitiesLayer
             NumberOfUnits -= 10; // Reputation Malus. Dude, you're losing, it's sad, but nobody wants to be with you at the end.
         }
 
+        public override string Descriptor()
+        {
+            return "House";
+        }
     }
 }

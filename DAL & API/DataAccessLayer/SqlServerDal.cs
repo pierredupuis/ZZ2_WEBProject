@@ -406,9 +406,9 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.VarChar).Value = f.HouseChallenging;
-                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.HouseChallenged;
-                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.VarChar).Value = f.WinningHouse;
+                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.VarChar).Value = f.Army1;
+                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.Army2;
+                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.VarChar).Value = f.WinningArmy;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -424,9 +424,9 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.VarChar).Value = f.HouseChallenging;
-                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.HouseChallenged;
-                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.VarChar).Value = f.WinningHouse;
+                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.VarChar).Value = f.Army1;
+                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.Army2;
+                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.VarChar).Value = f.WinningArmy;
                     sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = f.Id;
 
 

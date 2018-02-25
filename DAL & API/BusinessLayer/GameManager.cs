@@ -112,8 +112,8 @@ namespace BusinessLayer
         public Boolean StartFight(FightDTO f)
         {
             Random rand = new Random();
-            HouseDTO hAtt = this.GetHouseById(f.HouseChallenging);
-            HouseDTO hDef = this.GetHouseById(f.HouseChallenged);
+            House hAtt = new House(this.GetHouseById(f.Army1));
+            House hDef = new House(this.GetHouseById(f.Army2));
             int nbAtt = hAtt.NumberOfUnits;
             int nbDef = hAtt.NumberOfUnits;
             int res;
@@ -130,12 +130,14 @@ namespace BusinessLayer
 
                 if ((nbAtt <= 0) || (nbAtt < hAtt.NumberOfUnits / 5 && nbAtt * 1.5 < nbDef)) // House 1 loses
                 {
-                    EndBattle(hDef, hAtt, nbDef, nbAtt);
+                    hAtt.WinBattle(hAtt.NumberOfUnits - nbAtt, hDef.NumberOfUnits - nbDef);
+                    hDef.LoseBattle(hDef.NumberOfUnits - nbDef, hAtt.NumberOfUnits - nbAtt);
                     battle = false;
                 }
                 else if ((nbDef <= 0) || (nbDef < hDef.NumberOfUnits / 5 && nbDef * 1.5 < nbAtt)) // House 2 loses
                 {
-                    EndBattle(hAtt, hDef, nbAtt, nbDef);
+                    hDef.WinBattle(hDef.NumberOfUnits - nbDef, hAtt.NumberOfUnits - nbAtt);
+                    hAtt.LoseBattle(hAtt.NumberOfUnits - nbAtt, hDef.NumberOfUnits - nbDef);
                     battle = false;
                 }
             }

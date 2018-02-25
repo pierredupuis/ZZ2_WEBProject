@@ -12,5 +12,7 @@ namespace EntitiesLayer
 
         public abstract void WinBattle(int Casualties, int EnnemyCasualties);
         public abstract void LoseBattle(int Casualties, int EnnemyCasualties);
+
+        public abstract String Descriptor();
     }
 }

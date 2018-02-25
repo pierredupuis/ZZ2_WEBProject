@@ -30,5 +30,10 @@ namespace EntitiesLayer
             NumberOfUnits -= Casualties; // No Raising the Dead when you're losing, better focus on running away
         }
 
+        public override string Descriptor()
+        {
+            return "WhiteWalker";
+        }
+
     }
 }
