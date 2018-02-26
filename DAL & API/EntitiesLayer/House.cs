@@ -29,14 +29,12 @@ namespace EntitiesLayer
 
         public override void WinBattle(int Casualties, int EnnemyCasualties)
         {
-            NumberOfUnits -= Casualties;
             NumberOfUnits += 10; // Reputation Bonus. Great victories means more people willing to enroll !
         }
 
         public override void LoseBattle(int Casualties, int EnnemyCasualties)
         {
-            NumberOfUnits -= Casualties;
-            NumberOfUnits -= 10; // Reputation Malus. Dude, you're losing, it's sad, but nobody wants to be with you at the end.
+            NumberOfUnits = 0; // Reputation Malus. Dude, you're losing, it's sad, but nobody wants to be with you at the end.
         }
 
         public override string Descriptor()
@@ -51,13 +49,13 @@ namespace EntitiesLayer
         }
         public override void UnitWins(Random r)
         {
-            if (r.Next(1, 20) < 19) // 1/20 to die from wounds
+            if (r.Next(0, 20) == 19) // 1/20 to die from wounds
                 NumberOfUnits--;
         }
 
         public override void UnitDraw(Random r)
         {
-            if (r.Next(1, 20) < 19) // 1/20 to die from wounds
+            if (r.Next(0, 20) == 19) // 1/20 to die from wounds
                 NumberOfUnits--;
         }
     }

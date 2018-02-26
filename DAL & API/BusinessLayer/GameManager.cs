@@ -195,15 +195,15 @@ namespace BusinessLayer
                     }
                     if (hAtt.NumberOfUnits <= 5) // Attacking House loses
                     {
-                        hAtt.WinBattle(nbAtt - hAtt.NumberOfUnits, nbDef - hDef.NumberOfUnits);
-                        hDef.LoseBattle(nbDef - hDef.NumberOfUnits, nbAtt - hAtt.NumberOfUnits);
+                        hAtt.LoseBattle(nbAtt - hAtt.NumberOfUnits, nbDef - hDef.NumberOfUnits);
+                        hDef.WinBattle(nbDef - hDef.NumberOfUnits, nbAtt - hAtt.NumberOfUnits);
                         f.WinningArmy = f.DefArmy;
                         battle = false;
                     }
                     else if (hDef.NumberOfUnits <= 5) // Defending House loses
                     {
-                        hDef.WinBattle(nbDef - hDef.NumberOfUnits, nbAtt - hAtt.NumberOfUnits);
-                        hAtt.LoseBattle(nbAtt - hAtt.NumberOfUnits, nbDef - hDef.NumberOfUnits);
+                        hDef.LoseBattle(nbDef - hDef.NumberOfUnits, nbAtt - hAtt.NumberOfUnits);
+                        hAtt.WinBattle(nbAtt - hAtt.NumberOfUnits, nbDef - hDef.NumberOfUnits);
                         f.WinningArmy = f.AttArmy;
                         battle = false;
                     }

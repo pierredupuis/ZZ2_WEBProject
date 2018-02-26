@@ -24,11 +24,11 @@ namespace EntitiesLayer
         {
             // Raise the Dead ! But no reputation bonus. No one volunteers for joining the army of the dead...
             NumberOfUnits += EnnemyCasualties;
-            NumberOfUnits -= Casualties;
         }
         public override void LoseBattle(int Casualties, int EnnemyCasualties)
         {
-            NumberOfUnits -= Casualties; // No Raising the Dead when you're losing, better focus on running away
+            // The body of this function is blank ... Let's be real they're White Walkers they can't lose
+            // No Raising the Dead when you're losing, better focus on running away
         }
 
         public override string Descriptor()
