@@ -113,7 +113,7 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -213,7 +213,7 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -318,10 +318,11 @@ namespace DataAccessLayer
                     sqlCmd.Parameters.Add("@Bravoury", SqlDbType.VarChar).Value = c.Bravoury;
                     sqlCmd.Parameters.Add("@Crazyness", SqlDbType.Int).Value = c.Crazyness;
                     sqlCmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = c.LastName;
-                    sqlCmd.Parameters.Add("@FirstName", SqlDbType.Int).Value = c.FirstName;
-                    sqlCmd.Parameters.Add("@Pv", SqlDbType.VarChar).Value = c.Pv;
+                    sqlCmd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = c.FirstName;
+                    sqlCmd.Parameters.Add("@Pv", SqlDbType.Int).Value = c.Pv;
                     sqlCmd.Parameters.Add("@Pf", SqlDbType.Int).Value = c.Pf;
-                    sqlCmd.Parameters.Add("@HouseId", SqlDbType.VarChar).Value = c.HouseId;
+                    sqlCmd.Parameters.Add("@HouseId", SqlDbType.Int).Value = c.HouseId;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = c.Id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -336,7 +337,7 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -557,7 +558,7 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
@@ -653,7 +654,7 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
