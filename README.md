@@ -5,9 +5,10 @@ Projet web de ZZ2 (F2&amp;F5)
 # Avancement :
 
 * Base de données : Même avancement que l'API
-* BusinessLayer : Implémentation des opérations demandés pour les classes : House, Fight et Character.
-* API : Méthodes implémentés non encore téstés (dépendance BusinessLayer)
+* BusinessLayer : Implémentation des opérations demandés pour toutes les classes.
+* API : Méthodes implémentés.
 * Web App : Listes d'éléments, Vues 'Create' pour House et Character. Attente de l'avancement de l'API pour créer/tester des vues 'Create', 'GetByID', 'Delete', 'Edit'
+* Version Console : Jeu términé (pas encore tésté).
 
 # Penser à
 * Changer le path de la Base de Données selon le PC  (DataAccessLayer, DalManager.cs, l. 13-16)
@@ -45,7 +46,7 @@ Projet web de ZZ2 (F2&amp;F5)
   * [x] Post(War)
   * [x] Edit(War)
   * [x] Delete(id)
-  
+
 # Web App
 Seuls les Index (Liste tous les éléments) ont été testés. Attente de l'API pour tester le reste.
 * [ ] Character
