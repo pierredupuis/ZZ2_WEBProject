@@ -28,26 +28,33 @@ namespace game_of_thrones
 
             do
             {
-                Console.WriteLine("Choose an action (exemple W3) : ");
+                Console.WriteLine("Choose an action (example W3) : ");
                 for (int i = 0; i < classes.Length; i++)
                 {
                     Console.WriteLine(classes[i][0] + " ) " + classes[i]);
                     Console.WriteLine("========");
                     Console.WriteLine("\t 1) List All");
-                    Console.WriteLine("\t 2) By Id [ par exemple " + classes[i][0] + "2 <ID> ]");
+                    Console.WriteLine("\t 2) By Id [ par example " + classes[i][0] + "2 <ID> ]");
                     Console.WriteLine("\t 3) Create");
-                    Console.WriteLine("\t 4) Edit [ par exemple " + classes[i][0] + "2 <ID> ]");
-                    Console.WriteLine("\t 5) Delete [ par exemple " + classes[i][0] + "2 <ID> ]");
+                    Console.WriteLine("\t 4) Edit [ par example " + classes[i][0] + "2 <ID> ]");
+                    Console.WriteLine("\t 5) Delete [ par example " + classes[i][0] + "2 <ID> ]");
                 }
+                Console.WriteLine("X) Fight ! [example X <IDFIGHT>");
                 Console.WriteLine("Q ) Quit");
 
-                if (counter > 5)
+                if (counter % 5 == 0)
                     Console.WriteLine("Dude ! You should really try the SUPER Web Based version of the game !");
                 else if (counter > 50)
                     Console.WriteLine("WOW ! Even the devs didn't enjoy it that much");
                 line = Console.In.ReadLine();
                 if (line == "Q")
                     keepPlaying = false;
+                else if(line == "X")
+                {
+
+                    GameManager.Instance.StartFight(GameManager.Instance.GetFightById(Int32.Parse(line.Split('-')[1])));
+                    ObjectDumper.Write(GameManager.Instance.GetFightById(Int32.Parse(line.Split('-')[1])));
+                }
                 else if (!"CFWHTW".Contains(line[0]) || !"12345".Contains(line[1]))
                     Console.WriteLine("Invalid Action");
                 else
