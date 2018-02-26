@@ -33,7 +33,10 @@ namespace WebApplicationThrones.Models
         [Display(Name = "Maximum Health Points")]
         public int HPMax { get; set; }
 
-		[Display(Name = "Relations with other Characters")]
+        [Display(Name = "House of the character")]
+        public int HouseId { get; set; }
+
+        [Display(Name = "Relations with other Characters")]
         List<RelationshipModel> Relationships;
 
         public CharacterModel()

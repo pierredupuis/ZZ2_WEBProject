@@ -544,6 +544,7 @@ namespace DataAccessLayer
                 {
                     sqlCmd.Parameters.Add("@TerritoryType", SqlDbType.VarChar).Value = Territory.Type;
                     sqlCmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = Territory.Owner;
+                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = Territory.Id;
 
                     sqlCmd.ExecuteNonQuery();
                 };
