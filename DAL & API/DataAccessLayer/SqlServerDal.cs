@@ -14,9 +14,9 @@ namespace DataAccessLayer
     class SqlServerDal : IDal
     {
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\MADDXYZ\\Desktop\\temp_db.mdf;Integrated Security=True;Connect Timeout=30";
-        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\karroum\\Documents\\Projets\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
         //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\andumont7\\Source\\Repos\\ZZ2_WEBProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
-        //private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
+        private static readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Jarvis\\Repositories\\ZZ2_WebProject\\DAL & API\\temp_db.mdf\";Integrated Security=True;Connect Timeout=30";
 
         public List<HouseDTO> GetHouses()
         {
@@ -401,7 +401,7 @@ namespace DataAccessLayer
 
         public void AddFight(FightDTO f)
         {
-            string field2 = (f.Army2 > 0 ? "ChallengedHouseId" : "ChallengedWWId");
+            string field2 = (f.DefArmy > 0 ? "ChallengedHouseId" : "ChallengedWWId");
             string field3 = (f.WinningArmy > 0 ? "WinningHouseId" : "WinningWWId");
 
             string sql = "INSERT INTO Fights(ChallengingHouseId, " + field2 + ", " + field3 + ") Values(@ChallengingHouseId, @ChallengedHouseId, @WinningHouseId)";
@@ -410,8 +410,8 @@ namespace DataAccessLayer
                 sqlCon.Open();
                 using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
                 {
-                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.Int).Value = f.Army1;
-                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.Army2;
+                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.Int).Value = f.AttArmy;
+                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.DefArmy;
                     if (f.WinningArmy != 0) // Gagnant non determiné
                         sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.Int).Value = f.WinningArmy;
                     else
@@ -424,25 +424,28 @@ namespace DataAccessLayer
 
         public void EditFight(FightDTO f)
         {
-            string field2 = (f.Army2 > 0 ? "ChallengedHouseId" : "ChallengedWWId");
-            string field3 = (f.WinningArmy > 0 ? "WinningHouseId" : "WinningWWId");
-
-            string sql = "UPDATE Fights SET ChallengingHouseId = @ChallengingHouseId, " + field2 + " = @ChallengedHouseId, " + field3 + " = @WinningHouseId WHERE FightId = @id";
-            using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+            if (f.WinningArmy != 0)
             {
-                sqlCon.Open();
-                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                string field2 = (f.DefArmy > 0 ? "ChallengedHouseId" : "ChallengedWWId");
+                string field3 = (f.WinningArmy > 0 ? "WinningHouseId" : "WinningWWId");
+
+                string sql = "UPDATE Fights SET ChallengingHouseId = @ChallengingHouseId, " + field2 + " = @ChallengedHouseId, " + field3 + " = @WinningHouseId WHERE FightId = @id";
+                using (SqlConnection sqlCon = new SqlConnection(_connectionString))
                 {
-                    sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.Int).Value = f.Army1;
-                    sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.Army2;
-                    sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.Int).Value = f.WinningArmy;
-                    sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = f.Id;
+                    sqlCon.Open();
+                    using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                    {
+                        sqlCmd.Parameters.Add("@ChallengingHouseId", SqlDbType.Int).Value = f.AttArmy;
+                        sqlCmd.Parameters.Add("@ChallengedHouseId", SqlDbType.Int).Value = f.DefArmy;
+                        sqlCmd.Parameters.Add("@WinningHouseId", SqlDbType.Int).Value = f.WinningArmy;
+                        sqlCmd.Parameters.Add("@id", SqlDbType.Int).Value = f.Id;
 
 
-                    sqlCmd.ExecuteNonQuery();
+                        sqlCmd.ExecuteNonQuery();
+                    };
+                    sqlCon.Close();
                 };
-                sqlCon.Close();
-            };
+            }
         }
         public void DeleteFight(int id)
         {

@@ -23,7 +23,8 @@ namespace EntitiesLayer
         public override void WinBattle(int Casualties, int EnnemyCasualties)
         {
             // Raise the Dead ! But no reputation bonus. No one volunteers for joining the army of the dead...
-            NumberOfUnits += EnnemyCasualties - Casualties;
+            NumberOfUnits += EnnemyCasualties;
+            NumberOfUnits -= Casualties;
         }
         public override void LoseBattle(int Casualties, int EnnemyCasualties)
         {
@@ -35,5 +36,18 @@ namespace EntitiesLayer
             return "WhiteWalker";
         }
 
+        public override void UnitWins(Random r)
+        {
+            // Zombies are binary. They're dead (moving) or they're dead (dead). No Wounds.
+        }
+        public override void UnitLoses(Random r)
+        {
+            // Zombies aren't really tough... they lose they die... well, again
+        }
+        public override void UnitDraw(Random r)
+        {
+            NumberOfUnits--;
+            // Zombies aren't really tough... there is no "draw". They die for real if equality.
+        }
     }
 }
