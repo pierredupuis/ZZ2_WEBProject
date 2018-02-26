@@ -9,8 +9,8 @@ namespace EntitiesLayer.DTOs
 {
     public class FightDTO
     {
-        public int Army1 { get; set; }
-        public int Army2 { get; set; }
+        public int AttArmy { get; set; }
+        public int DefArmy { get; set; }
         public int WinningArmy { get; set; }
         public int Id { get; set; }
 
@@ -19,17 +19,17 @@ namespace EntitiesLayer.DTOs
             Id = -1;
         }
 
-        public FightDTO(int id, int army1, int army2, int winningHouse)
+        public FightDTO(int id, int p_attArmy, int p_defArmy, int winningHouse)
         {
-            Army1 = army1;
-            Army2 = army2;
+            AttArmy = p_attArmy;
+            DefArmy = p_defArmy;
             WinningArmy = winningHouse;
             Id = id;
         }
         public FightDTO(Fight f)
         {
-            Army1 = f.Army1.Id;
-            Army2 = f.Army2.Id;
+            AttArmy = f.AttArmy.Id;
+            DefArmy = f.DefArmy.Id;
             WinningArmy = f.WinningArmy.Id;
         }
     }

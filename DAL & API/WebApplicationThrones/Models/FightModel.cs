@@ -12,16 +12,16 @@ namespace WebApplicationThrones.Models
         public int ID { get; set; }
 
         [Display(Name = "Attacking Army ID", AutoGenerateField = false)]
-        public int Army1 { get; set; }
+        public int AttArmy { get; set; }
 
         [Display(Name = "House Name")]
-        public ArmyModel Army1_obj { get; set; }
+        public ArmyModel AttArmy_obj { get; set; }
 
         [Display(Name = "Defending Army ID", AutoGenerateField = false)]
-        public int Army2 { get; set; }
+        public int DefArmy { get; set; }
 
         [Display(Name = "Opponents")]
-        public ArmyModel Army2_obj { get; set; }
+        public ArmyModel DefArmy_obj { get; set; }
 
         [Display(Name = "Victorious Army ID", AutoGenerateField = false)]
         public int WinningArmy { get; set; }

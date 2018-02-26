@@ -50,5 +50,11 @@ namespace ApiGOT.Controllers
             GameManager.Instance.DeleteFight(id);
             return Ok();
         }
+
+        [HttpGet, Route("Fight/Start/{id}")]
+        public IHttpActionResult GetFight(int id)
+        {
+            return Ok(GameManager.Instance.StartFight(GameManager.Instance.GetFightById(id)));
+        }
     }
 }

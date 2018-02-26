@@ -8,16 +8,16 @@ namespace EntitiesLayer
 {
     public class Fight : EntityObject
     {
-        public Army Army1 { get; set; }
-        public Army Army2 { get; set; }
+        public Army AttArmy { get; set; }
+        public Army DefArmy { get; set; }
         public Army WinningArmy { get; set; }
 
 
 
-        public Fight(int p_id, Army p_army1, Army p_army2, Army p_winningArmy)
+        public Fight(int p_id, Army p_AttArmy, Army p_DefArmy, Army p_winningArmy)
         {
-            Army1 = p_army1;
-            Army2 = p_army2;
+            AttArmy = p_AttArmy;
+            DefArmy = p_DefArmy;
             WinningArmy = p_winningArmy;
 
             base.Id = p_id;

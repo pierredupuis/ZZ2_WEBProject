@@ -20,11 +20,7 @@ namespace BusinessLayer
 
         }
 
-
-        /*public static List<Fight> GetFights()
-        {
-            return DalManager.Instance.GetFights();
-        }*/
+        
         public List<HouseDTO> GetHouses()
         {
             return DalManager.Instance.GetHouses();
@@ -151,53 +147,78 @@ namespace BusinessLayer
             DalManager.Instance.DeleteWar(id);
         }
 
+        private Army GetArmyByID(int ID)
+        {
+            if (ID > 0)
+                return new House(GetHouseById(ID));
+            else if (ID < 0)
+                return new WhiteWalker(GetWhiteWalkerById(ID));
+            else
+                return null;
+        }
+        private void EditArmy(Army a)
+        {
+            if (a.Id > 0)
+                EditHouse(new HouseDTO((House)a));
+            else if (a.Id < 0)
+                EditWhiteWalker(new WhiteWalkerDTO((WhiteWalker)a));
+        }
         public Boolean StartFight(FightDTO f)
         {
-            Random rand = new Random();
-            House hAtt = new House(this.GetHouseById(f.Army1));
-            House hDef = new House(this.GetHouseById(f.Army2));
-            int nbAtt = hAtt.NumberOfUnits;
-            int nbDef = hAtt.NumberOfUnits;
-            int res;
-            Boolean battle = true;
-
-            while (battle) // Fight
+            if (f.WinningArmy == 0) // If not already fought
             {
-                for (int i = 0; i < nbAtt && i < nbDef; i++)
+                Random rand = new Random();
+                House hAtt = new House(this.GetHouseById(f.AttArmy));
+                Army hDef = GetArmyByID(f.DefArmy);
+
+                int nbAtt = hAtt.NumberOfUnits;
+                int nbDef = hDef.NumberOfUnits;
+
+                Boolean battle = true;
+
+                while (battle) // Go
                 {
-                    res = rand.Next(0, 2) * 2 - 1; // res = 1 or -1 (0or1 * 2 = 0or2 - 1 = -1or1)
-                    nbAtt += res;
-                    nbDef += res;
+                    switch(rand.Next(0, 3))
+                    {
+                        case 0:
+                            hAtt.UnitWins(rand);        // 1/3 Win
+                            hDef.UnitLoses(rand);
+                            break;
+                        case 1:
+                            hAtt.UnitDraw(rand);        // 1/3 Draw
+                            hDef.UnitDraw(rand);
+                            break;
+                        case 2:
+                            hAtt.UnitLoses(rand);       // 1/3 Lose
+                            hDef.UnitWins(rand);
+                            break;
+                    }
+                    if (hAtt.NumberOfUnits <= 5) // Attacking House loses
+                    {
+                        hAtt.WinBattle(nbAtt - hAtt.NumberOfUnits, nbDef - hDef.NumberOfUnits);
+                        hDef.LoseBattle(nbDef - hDef.NumberOfUnits, nbAtt - hAtt.NumberOfUnits);
+                        f.WinningArmy = f.DefArmy;
+                        battle = false;
+                    }
+                    else if (hDef.NumberOfUnits <= 5) // Defending House loses
+                    {
+                        hDef.WinBattle(nbDef - hDef.NumberOfUnits, nbAtt - hAtt.NumberOfUnits);
+                        hAtt.LoseBattle(nbAtt - hAtt.NumberOfUnits, nbDef - hDef.NumberOfUnits);
+                        f.WinningArmy = f.AttArmy;
+                        battle = false;
+                    }
+
                 }
 
-                if ((nbAtt <= 0) || (nbAtt < hAtt.NumberOfUnits / 5 && nbAtt * 1.5 < nbDef)) // House 1 loses
-                {
-                    hAtt.WinBattle(hAtt.NumberOfUnits - nbAtt, hDef.NumberOfUnits - nbDef);
-                    hDef.LoseBattle(hDef.NumberOfUnits - nbDef, hAtt.NumberOfUnits - nbAtt);
-                    battle = false;
-                }
-                else if ((nbDef <= 0) || (nbDef < hDef.NumberOfUnits / 5 && nbDef * 1.5 < nbAtt)) // House 2 loses
-                {
-                    hDef.WinBattle(hDef.NumberOfUnits - nbDef, hAtt.NumberOfUnits - nbAtt);
-                    hAtt.LoseBattle(hAtt.NumberOfUnits - nbAtt, hDef.NumberOfUnits - nbDef);
-                    battle = false;
-                }
-            }
-            return false;
-        }
-        private void EndBattle(HouseDTO Winner, HouseDTO Looser, int wUnits, int lUnits)
-        {
-            /*if (Winner.WhiteWalker)
-            {
-                Winner.NumberOfUnits += Looser.NumberOfUnits - lUnits; // Raise the Dead ! But no reputation bonus. No one volunteers for joining the army of the dead...
+                EditHouse(new HouseDTO(hAtt)); // Save the changes
+                EditArmy(hDef);
+                EditFight(f);
+                return true;
             }
             else
             {
-                Winner.NumberOfUnits = wUnits + 10; // Reputation Bonus. Great victories means more people willing to enroll !
+                return false;
             }
-
-            Looser.NumberOfUnits = lUnits - 10; // Reputation Malus. Dude, you're losing, it's sad, but nobody wants to be with you at the end.*/
-
         }
 
     }

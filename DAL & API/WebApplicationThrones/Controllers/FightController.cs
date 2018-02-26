@@ -35,15 +35,16 @@ namespace WebApplicationThrones.Controllers
 
                     foreach (FightModel fm in Fights)
                     {
-                        fm.Army1_obj = await HouseController._GetHouse(fm.Army1);
-                        if (fm.Army2 > 0)
-                        {
-                            fm.Army2_obj = await HouseController._GetHouse(fm.Army2);
-                        }
-                        else
-                        {
-                            fm.Army2_obj = await WhiteWalkerController._GetWhiteWalker(fm.Army2);
-                        }
+                        fm.AttArmy_obj = await HouseController._GetHouse(fm.AttArmy);
+                        if (fm.DefArmy > 0)
+                            fm.DefArmy_obj = await HouseController._GetHouse(fm.DefArmy);
+                        else if(fm.DefArmy < 0)
+                            fm.DefArmy_obj = await WhiteWalkerController._GetWhiteWalker(fm.DefArmy);
+
+                        if(fm.WinningArmy > 0)
+                            fm.WinningArmy_obj = await HouseController._GetHouse(fm.WinningArmy);
+                        else if(fm.WinningArmy < 0)
+                            fm.WinningArmy_obj = await WhiteWalkerController._GetWhiteWalker(fm.WinningArmy);
                     }
                 }
             }
@@ -65,15 +66,16 @@ namespace WebApplicationThrones.Controllers
                     string temp = await response.Content.ReadAsStringAsync();
                     Fight = JsonConvert.DeserializeObject<FightModel>(temp);
 
-                    Fight.Army1_obj = await HouseController._GetHouse(Fight.Army1);
-                    if (Fight.Army2 > 0)
-                    {
-                        Fight.Army2_obj = await HouseController._GetHouse(Fight.Army2);
-                    }
+                    Fight.AttArmy_obj = await HouseController._GetHouse(Fight.AttArmy);
+                    if (Fight.DefArmy > 0)
+                        Fight.DefArmy_obj = await HouseController._GetHouse(Fight.DefArmy);
                     else
-                    {
-                        Fight.Army2_obj = await WhiteWalkerController._GetWhiteWalker(Fight.Army2);
-                    }
+                        Fight.DefArmy_obj = await WhiteWalkerController._GetWhiteWalker(Fight.DefArmy);
+                   
+                    if (Fight.WinningArmy > 0)
+                        Fight.WinningArmy_obj = await HouseController._GetHouse(Fight.WinningArmy);
+                    else
+                        Fight.WinningArmy_obj = await WhiteWalkerController._GetWhiteWalker(Fight.WinningArmy);
                 }
             }
             return Fight;
@@ -121,8 +123,8 @@ namespace WebApplicationThrones.Controllers
                     ArmyItemList.Add(new SelectListItem() { Text = wwm.NumberOfUnits.ToString(), Value = wwm.Id.ToString(), Group = WWGroup });
                 }
 
-                ViewBag.Army1 = HouseItemList;
-                ViewBag.Army2 = ArmyItemList;
+                ViewBag.AttArmy = HouseItemList;
+                ViewBag.DefArmy = ArmyItemList;
 
                 return View();
             }
@@ -131,6 +133,7 @@ namespace WebApplicationThrones.Controllers
                 return RedirectToAction("Index");
             }
         }
+
 
         // POST: Fight/Create
         [HttpPost]
@@ -156,6 +159,24 @@ namespace WebApplicationThrones.Controllers
             }
         }
 
+        public async Task<ActionResult> Start(int ID)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:" + Globals.api_port + "/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("Fight/Start/" + ID);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string temp = await response.Content.ReadAsStringAsync();
+                    JsonConvert.DeserializeObject<Boolean>(temp);
+                }
+            }
+            return RedirectToAction("Index");
+        }
         // GET: Fight/Edit/5
         public async Task<ActionResult> Edit(int id)
         {

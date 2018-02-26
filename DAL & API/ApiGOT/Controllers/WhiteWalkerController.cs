@@ -27,7 +27,7 @@ namespace ApiGOT.Controllers
         public IHttpActionResult GetWhiteWalkerById(int id)
         {
             WhiteWalkerDTO ww = GameManager.Instance.GetWhiteWalkerById(id);
-            if (ww.Id == -1)
+            if (ww.Id == 0)
                 return NotFound();
             else
                 return Ok(ww);

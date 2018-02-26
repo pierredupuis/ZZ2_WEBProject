@@ -43,5 +43,22 @@ namespace EntitiesLayer
         {
             return "House";
         }
+
+        public override void UnitLoses(Random r)
+        {
+            if (r.Next(0, 10) < 9)  // 1/10 to survive
+                NumberOfUnits--;
+        }
+        public override void UnitWins(Random r)
+        {
+            if (r.Next(1, 20) < 19) // 1/20 to die from wounds
+                NumberOfUnits--;
+        }
+
+        public override void UnitDraw(Random r)
+        {
+            if (r.Next(1, 20) < 19) // 1/20 to die from wounds
+                NumberOfUnits--;
+        }
     }
 }

@@ -12,41 +12,48 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Army1_obj.NumberOfUnits)
+            @Html.DisplayNameFor(model => model.AttArmy_obj.NumberOfUnits)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Army1_obj.Name)
+            @Html.DisplayNameFor(model => model.AttArmy_obj.Name)
         </th>
         <th>
             Versus
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Army2_obj.NumberOfUnits)
+            @Html.DisplayNameFor(model => model.DefArmy_obj.NumberOfUnits)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Army2_obj.Name)
+            @Html.DisplayNameFor(model => model.DefArmy_obj.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WinningArmy_obj)
         </th>
     </tr>
     @foreach (var item in Model)
     {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Army1_obj.NumberOfUnits)
+            @Html.DisplayFor(modelItem => item.AttArmy_obj.NumberOfUnits)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Army1_obj.Name)
+            @Html.DisplayFor(modelItem => item.AttArmy_obj.Name)
+        </td>
+        <td></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefArmy_obj.NumberOfUnits)
         </td>
         <td>
-            
+            @Html.DisplayFor(modelItem => item.DefArmy_obj.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Army2_obj.NumberOfUnits)
+            @Html.DisplayFor(modelItem => item.WinningArmy_obj.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Army2_obj.Name)
+            @Html.ActionLink("Fight !", "Start", new { id = item.ID })
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new {  id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
     </tr>
     }
