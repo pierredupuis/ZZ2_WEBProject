@@ -1,0 +1,59 @@
+﻿<Window x:Class="WPFofThrones.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFofThrones"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <!--<StackPanel.Background>
+            <ImageBrush ImageSource="C:\\Users\\pidupuis1\\Documents\\got.jpg" AlignmentX="Center" AlignmentY="Top" ></ImageBrush>
+        </StackPanel.Background>-->
+        <TabControl Background="Transparent">
+            <TabItem Header="House list">
+                <StackPanel Background="Transparent">
+                    <ListView Foreground="Black" Background="Transparent" x:Name="houseList" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200" />
+                                <GridViewColumn Header="Number of Units" DisplayMemberBinding="{Binding NumberOfUnits}" Width="100" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Name="RefreshHouse" Content="Refresh" Background="DarkCyan" Width="100" Height="30" Click="RefreshHouse_Click"></Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="White Walker list">
+                <StackPanel>
+                    <ListView x:Name="wwList" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200" />
+                                <GridViewColumn Header="Number of Units" DisplayMemberBinding="{Binding NumberOfUnits}" Width="100" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Name="RefreshWW" Content="Refresh" Background="DarkCyan" Width="100" Height="30" Click="RefreshWW_Click"></Button>
+                 </StackPanel>
+            </TabItem>
+            <TabItem Header="Fight list">
+                <StackPanel>
+                    <ListView x:Name="fightList" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Attacking House" DisplayMemberBinding="{Binding AttArmy_obj.Name}" Width="130" />
+                            <GridViewColumn Header="Units" DisplayMemberBinding="{Binding AttArmy_obj.NumberOfUnits}" Width="50" />
+                            <GridViewColumn Header="Defending House" DisplayMemberBinding="{Binding DefArmy_obj.Name}" Width="130" />
+                            <GridViewColumn Header="Units" DisplayMemberBinding="{Binding DefArmy_obj.NumberOfUnits}" Width="50" />
+                            <GridViewColumn Header="Winning House" DisplayMemberBinding="{Binding WinningArmy_obj.Name}" Width="150" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Name="RefreshFight" Content="Refresh" Background="DarkCyan" Width="100" Height="30" Click="RefreshFight_Click"></Button>
+        </StackPanel>
+    </TabItem>
+        </TabControl>
+
+    </StackPanel>
+</Window>
