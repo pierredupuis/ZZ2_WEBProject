@@ -27,6 +27,11 @@
             <TabItem Header="White Walker list">
                 <StackPanel>
                     <ListView x:Name="wwList" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="MouseDoubleClick" Handler="listViewItem_MouseDoubleClick" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200" />
@@ -41,14 +46,14 @@
                 <StackPanel>
                     <ListView x:Name="fightList" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top">
                     <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Attacking House" DisplayMemberBinding="{Binding AttArmy_obj.Name}" Width="130" />
-                            <GridViewColumn Header="Units" DisplayMemberBinding="{Binding AttArmy_obj.NumberOfUnits}" Width="50" />
-                            <GridViewColumn Header="Defending House" DisplayMemberBinding="{Binding DefArmy_obj.Name}" Width="130" />
-                            <GridViewColumn Header="Units" DisplayMemberBinding="{Binding DefArmy_obj.NumberOfUnits}" Width="50" />
-                            <GridViewColumn Header="Winning House" DisplayMemberBinding="{Binding WinningArmy_obj.Name}" Width="150" />
-                        </GridView>
-                    </ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Attacking House" DisplayMemberBinding="{Binding AttArmy_obj.Name}" Width="130" />
+                                <GridViewColumn Header="Units" DisplayMemberBinding="{Binding AttArmy_obj.NumberOfUnits}" Width="50" />
+                                <GridViewColumn Header="Defending House" DisplayMemberBinding="{Binding DefArmy_obj.Name}" Width="130" />
+                                <GridViewColumn Header="Units" DisplayMemberBinding="{Binding DefArmy_obj.NumberOfUnits}" Width="50" />
+                                <GridViewColumn Header="Winning House" DisplayMemberBinding="{Binding WinningArmy_obj.Name}" Width="150" />
+                            </GridView>
+                        </ListView.View>
                 </ListView>
                 <Button Name="RefreshFight" Content="Refresh" Background="DarkCyan" Width="100" Height="30" Click="RefreshFight_Click"></Button>
         </StackPanel>

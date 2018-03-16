@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -58,7 +59,7 @@ namespace WPFofThrones
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.GetAsync("api/House");
-
+                
                 if (response.IsSuccessStatusCode)
                 {
                     string temp = await response.Content.ReadAsStringAsync();
@@ -150,6 +151,11 @@ namespace WPFofThrones
         private async void RefreshFight_Click(object sender, RoutedEventArgs e)
         {
             fightList.ItemsSource = await getFightList();
+        }
+        private void listViewItem_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            WhiteWalkerModel ww = ((ListViewItem)sender).Content as WhiteWalkerModel;
+            new WWEdit(ww).ShowDialog();
         }
     }
 }
